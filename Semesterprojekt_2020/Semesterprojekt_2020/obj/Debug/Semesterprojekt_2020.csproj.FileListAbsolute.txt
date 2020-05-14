@@ -1,0 +1,10 @@
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\bin\Debug\Semesterprojekt_2020.exe.config
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\bin\Debug\Semesterprojekt_2020.exe
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\bin\Debug\Semesterprojekt_2020.pdb
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.csprojAssemblyReference.cache
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Properties.Resources.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.csproj.GenerateResource.cache
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.exe
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.pdb
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Form1.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.csproj.CoreCompileInputs.cache
