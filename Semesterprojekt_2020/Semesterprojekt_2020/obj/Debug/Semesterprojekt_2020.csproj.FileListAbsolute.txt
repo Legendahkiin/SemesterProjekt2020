@@ -6,5 +6,8 @@ C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Se
 C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.csproj.GenerateResource.cache
 C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.exe
 C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.pdb
-C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Form1.resources
 C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.csproj.CoreCompileInputs.cache
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Menu.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Timeregistrereing.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Uddannelse.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Medarbejdere.resources
