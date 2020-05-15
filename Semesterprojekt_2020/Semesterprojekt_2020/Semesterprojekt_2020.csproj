@@ -46,16 +46,97 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Menu.cs">
+    <Compile Include="Forms\Kunder\Kunder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.cs">
+    <Compile Include="Forms\Kunder\Kunder.Designer.cs">
+      <DependentUpon>Kunder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kunder\Kunde_sager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Kunder\Kunde_sager.Designer.cs">
+      <DependentUpon>Kunde_sager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kunder\Opret_kunde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Kunder\Opret_kunde.Designer.cs">
+      <DependentUpon>Opret_kunde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Kunder\Rediger_kunde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Kunder\Rediger_kunde.Designer.cs">
+      <DependentUpon>Rediger_kunde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Opret_medarbejder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Opret_medarbejder.Designer.cs">
+      <DependentUpon>Opret_medarbejder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Rediger_medarbejder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Rediger_medarbejder.Designer.cs">
+      <DependentUpon>Rediger_medarbejder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Timeregistrereing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Timeregistrereing.Designer.cs">
+      <DependentUpon>Timeregistrereing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Medarbejdere.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Medarbejdere.Designer.cs">
+      <DependentUpon>Medarbejdere.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Uddannelse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Uddannelse.Designer.cs">
+      <DependentUpon>Uddannelse.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Menu.resx">
+    <EmbeddedResource Include="Forms\Kunder\Kunder.resx">
+      <DependentUpon>Kunder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Kunder\Kunde_sager.resx">
+      <DependentUpon>Kunde_sager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Kunder\Opret_kunde.resx">
+      <DependentUpon>Opret_kunde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Kunder\Rediger_kunde.resx">
+      <DependentUpon>Rediger_kunde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medarbejere\Opret_medarbejder.resx">
+      <DependentUpon>Opret_medarbejder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medarbejere\Rediger_medarbejder.resx">
+      <DependentUpon>Rediger_medarbejder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medarbejere\Timeregistrereing.resx">
+      <DependentUpon>Timeregistrereing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medarbejere\Medarbejdere.resx">
+      <DependentUpon>Medarbejdere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medarbejere\Uddannelse.resx">
+      <DependentUpon>Uddannelse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -78,6 +159,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Forms\Sager\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
