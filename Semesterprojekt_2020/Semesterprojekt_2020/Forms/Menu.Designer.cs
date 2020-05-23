@@ -31,16 +31,12 @@
             this.Medarbejdere = new System.Windows.Forms.Button();
             this.Kunder = new System.Windows.Forms.Button();
             this.Sager = new System.Windows.Forms.Button();
-            this.DatabaseKnap = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // Medarbejdere
             // 
             this.Medarbejdere.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Medarbejdere.Location = new System.Drawing.Point(9, 10);
+            this.Medarbejdere.Location = new System.Drawing.Point(106, 64);
             this.Medarbejdere.Margin = new System.Windows.Forms.Padding(0, 20, 0, 20);
             this.Medarbejdere.Name = "Medarbejdere";
             this.Medarbejdere.Size = new System.Drawing.Size(100, 50);
@@ -52,7 +48,7 @@
             // Kunder
             // 
             this.Kunder.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Kunder.Location = new System.Drawing.Point(9, 69);
+            this.Kunder.Location = new System.Drawing.Point(106, 123);
             this.Kunder.Margin = new System.Windows.Forms.Padding(0);
             this.Kunder.Name = "Kunder";
             this.Kunder.Size = new System.Drawing.Size(100, 50);
@@ -64,58 +60,25 @@
             // Sager
             // 
             this.Sager.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Sager.Location = new System.Drawing.Point(9, 129);
+            this.Sager.Location = new System.Drawing.Point(106, 183);
             this.Sager.Margin = new System.Windows.Forms.Padding(0);
             this.Sager.Name = "Sager";
             this.Sager.Size = new System.Drawing.Size(100, 50);
             this.Sager.TabIndex = 2;
             this.Sager.Text = "Sager";
             this.Sager.UseVisualStyleBackColor = true;
-            // 
-            // DatabaseKnap
-            // 
-            this.DatabaseKnap.Location = new System.Drawing.Point(9, 182);
-            this.DatabaseKnap.Name = "DatabaseKnap";
-            this.DatabaseKnap.Size = new System.Drawing.Size(100, 42);
-            this.DatabaseKnap.TabIndex = 3;
-            this.DatabaseKnap.Text = "Indlæs Database";
-            this.DatabaseKnap.UseVisualStyleBackColor = true;
-            this.DatabaseKnap.Click += new System.EventHandler(this.DatabaseKnap_Click);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(130, 10);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(684, 214);
-            this.dataGridView1.TabIndex = 4;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(9, 230);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 48);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.Sager.Click += new System.EventHandler(this.Sager_Click);
             // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(826, 473);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.DatabaseKnap);
+            this.ClientSize = new System.Drawing.Size(317, 338);
             this.Controls.Add(this.Sager);
             this.Controls.Add(this.Kunder);
             this.Controls.Add(this.Medarbejdere);
             this.Name = "Menu";
             this.Text = "Menu";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,9 +88,6 @@
         private System.Windows.Forms.Button Medarbejdere;
         private System.Windows.Forms.Button Kunder;
         private System.Windows.Forms.Button Sager;
-        private System.Windows.Forms.Button DatabaseKnap;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
     }
 }
 

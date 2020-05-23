@@ -8,19 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Semesterprojekt_2020.Forms
+namespace Semesterprojekt_2020.Forms.Sager
 {
-    public partial class Medarbejdere : Form
+    public partial class Sager : Form
     {
-        public Medarbejdere()
+        public Sager()
         {
             InitializeComponent();
         }
 
-        private void Medarbejdere_Load(object sender, EventArgs e)
+        private void Sager_Load(object sender, EventArgs e)
         {
+
             SQLHandler handler = new SQLHandler();
-            medarbejder_oversigt.DataSource = handler.FyldDataGridView("dbo.Medarbejder");
+            sag_oversigt.DataSource = handler.FyldDataGridView("dbo.Sag");
         }
     }
 }

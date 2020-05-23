@@ -12,10 +12,16 @@ namespace Semesterprojekt_2020
     // Vi laver en klasse der bruges til SQL håndtering (handling)
     class SQLHandler
     {
+        //Connection string sat op så den er nem at redigere
+        public static string SQLserver = "den1.mssql8.gear.host";
+        public static string database = "projekt2020";
+        public static string brugernavn = "projekt2020";
+        public static string kodeord = "Projekt2020@";
+        string connectionString = "Server=" + SQLserver + ";Database=" + database + ";User Id=" + brugernavn + ";Password=" + kodeord + ";";
 
         // En metode til at forbinde til databasen, ret unødvendig da vi forbinder os i alle andre metoder...
         // Kunne ændres så den ikke lukker forbindelsen selv (så man caller den for at starte forbindelsen, og en anden for at lukke)
-        public void ConnectToDatabase(string connectionString)
+        public void ConnectToDatabase()
         {
             // Vi skaber en forbindelse (using sørger for at forbindelsen lukkes "ordentligt" igen)
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -31,7 +37,7 @@ namespace Semesterprojekt_2020
         }
 
         // En metode til at køre en kommando på SQL serveren. Bruges ikke rigtig af mig, da jeg ofte skal gøre "mere" end bare køre en kommando
-        public void RunCommand(string command, string connectionString)
+        public void RunCommand(string command)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -42,10 +48,10 @@ namespace Semesterprojekt_2020
                 connection.Close();
             }
         }
-        
+
         // Giver ALT data fra en tabel (target)
         // Hvis vi vil vise fx kunder, så er target = "kunde" -- hvis medarbejdere, så er target = "medarbejder"
-        public void ReadDatabase(string target, string connectionString)
+        public void ReadDatabase(string target)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -54,7 +60,7 @@ namespace Semesterprojekt_2020
                 string selectCmd = "SELECT * FROM " + target;
 
                 connection.Open();
-                
+
                 // Vi laver en ny SqlCommand class med kommandoen og forbindelses-string
                 SqlCommand sql = new SqlCommand(selectCmd, connection);
 
@@ -90,7 +96,7 @@ namespace Semesterprojekt_2020
                     AND table_name = '" + target + "'";
 
                 connection.Open();
-                
+
                 SqlCommand sql = new SqlCommand(selectCmd, connection);
 
                 SqlDataReader dataReader = sql.ExecuteReader();
@@ -98,7 +104,7 @@ namespace Semesterprojekt_2020
                 while (dataReader.Read())
                 {
                     // og så caster vi vores resultat til en int og returner den
-                    return (int) dataReader.GetValue(0);
+                    return (int)dataReader.GetValue(0);
 
                 }
 
@@ -135,7 +141,7 @@ namespace Semesterprojekt_2020
                     TABLE_NAME = '" + target + "'";
 
                 connection.Open();
-                
+
                 SqlCommand sql = new SqlCommand(selectCmd, connection);
 
                 SqlDataReader dataReader = sql.ExecuteReader();
@@ -158,7 +164,7 @@ namespace Semesterprojekt_2020
 
                 }
 
-                
+
                 connection.Close();
             }
 
@@ -173,7 +179,7 @@ namespace Semesterprojekt_2020
 
 
             // og så looper vi array'et for at sætte hver column's navn til deres index-værdi
-            for(int i = 0; i < columnNames.Length; i++)
+            for (int i = 0; i < columnNames.Length; i++)
             {
                 grid.Columns[i].Name = columnNames[i];
             }
@@ -182,6 +188,57 @@ namespace Semesterprojekt_2020
 
         }
 
+        // Metode til at fylde et DataGridView
 
+        public object FyldDataGridView(string tabel)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.Connection = con;
+                sqlCmd.CommandText = "SELECT * FROM " + tabel + "";
+                SqlDataAdapter sda = new SqlDataAdapter(sqlCmd);
+
+                DataTable dtRecord = new DataTable();
+                sda.Fill(dtRecord);
+                return dtRecord;
+            }
+        }
+
+        //Metode til at indsætte kunde i DB
+
+        public void OpretKunde(string knavn, string kpostnr, string kbynavn, string kadr, string kemail, string ktlf)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand sqlCmd = new SqlCommand())
+                {
+                    sqlCmd.Connection = con;
+                    sqlCmd.CommandText = "INSERT INTO dbo.Kunde(Navn,Postnr,Bynavn,Adresse,Email,Tlfnr) VALUES(@knavn, @kpostnr, @kbynavn, @kadr,  @kemail, @ktlf)";
+                    sqlCmd.Parameters.AddWithValue("@knavn", knavn);
+                    sqlCmd.Parameters.AddWithValue("@kpostnr", kpostnr);
+                    sqlCmd.Parameters.AddWithValue("@kbynavn", kbynavn);
+                    sqlCmd.Parameters.AddWithValue("@kadr", kadr);
+                    sqlCmd.Parameters.AddWithValue("@kemail", kemail);
+                    sqlCmd.Parameters.AddWithValue("@ktlf", ktlf);
+                    con.Open();
+
+                    int result = sqlCmd.ExecuteNonQuery();
+
+                    if(result < 0)
+                    {
+                        MessageBox.Show("Database fejl ved oprettelse");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kunde oprettet");
+                    }
+
+                }
+
+            }
+        }
     }
 }
