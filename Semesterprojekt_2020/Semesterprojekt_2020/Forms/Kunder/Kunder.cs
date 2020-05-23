@@ -22,5 +22,11 @@ namespace Semesterprojekt_2020.Forms.Kunder
             SQLHandler handler = new SQLHandler();
             kunde_oversigt.DataSource = handler.FyldDataGridView("dbo.Kunde");
         }
+
+        private void opr_kunde_Click(object sender, EventArgs e)
+        {
+            Form f = new Opret_kunde();
+            f.Show();
+        }
     }
 }

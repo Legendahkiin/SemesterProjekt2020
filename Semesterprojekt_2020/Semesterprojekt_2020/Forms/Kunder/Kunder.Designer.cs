@@ -68,6 +68,7 @@
             this.opr_kunde.TabIndex = 7;
             this.opr_kunde.Text = "Opret";
             this.opr_kunde.UseVisualStyleBackColor = true;
+            this.opr_kunde.Click += new System.EventHandler(this.opr_kunde_Click);
             // 
             // kunde_oversigt
             // 

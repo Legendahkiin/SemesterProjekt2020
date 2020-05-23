@@ -48,7 +48,7 @@ namespace Semesterprojekt_2020
                 connection.Close();
             }
         }
-        
+
         // Giver ALT data fra en tabel (target)
         // Hvis vi vil vise fx kunder, så er target = "kunde" -- hvis medarbejdere, så er target = "medarbejder"
         public void ReadDatabase(string target)
@@ -60,7 +60,7 @@ namespace Semesterprojekt_2020
                 string selectCmd = "SELECT * FROM " + target;
 
                 connection.Open();
-                
+
                 // Vi laver en ny SqlCommand class med kommandoen og forbindelses-string
                 SqlCommand sql = new SqlCommand(selectCmd, connection);
 
@@ -96,7 +96,7 @@ namespace Semesterprojekt_2020
                     AND table_name = '" + target + "'";
 
                 connection.Open();
-                
+
                 SqlCommand sql = new SqlCommand(selectCmd, connection);
 
                 SqlDataReader dataReader = sql.ExecuteReader();
@@ -104,7 +104,7 @@ namespace Semesterprojekt_2020
                 while (dataReader.Read())
                 {
                     // og så caster vi vores resultat til en int og returner den
-                    return (int) dataReader.GetValue(0);
+                    return (int)dataReader.GetValue(0);
 
                 }
 
@@ -141,7 +141,7 @@ namespace Semesterprojekt_2020
                     TABLE_NAME = '" + target + "'";
 
                 connection.Open();
-                
+
                 SqlCommand sql = new SqlCommand(selectCmd, connection);
 
                 SqlDataReader dataReader = sql.ExecuteReader();
@@ -164,7 +164,7 @@ namespace Semesterprojekt_2020
 
                 }
 
-                
+
                 connection.Close();
             }
 
@@ -179,7 +179,7 @@ namespace Semesterprojekt_2020
 
 
             // og så looper vi array'et for at sætte hver column's navn til deres index-værdi
-            for(int i = 0; i < columnNames.Length; i++)
+            for (int i = 0; i < columnNames.Length; i++)
             {
                 grid.Columns[i].Name = columnNames[i];
             }
@@ -192,17 +192,53 @@ namespace Semesterprojekt_2020
 
         public object FyldDataGridView(string tabel)
         {
-            SqlConnection con = new SqlConnection(connectionString);
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
 
-            SqlCommand sqlCmd = new SqlCommand();
-            sqlCmd.Connection = con;
-            sqlCmd.CommandText = "SELECT * FROM " + tabel + "";
-            SqlDataAdapter sda = new SqlDataAdapter(sqlCmd);
+                SqlCommand sqlCmd = new SqlCommand();
+                sqlCmd.Connection = con;
+                sqlCmd.CommandText = "SELECT * FROM " + tabel + "";
+                SqlDataAdapter sda = new SqlDataAdapter(sqlCmd);
 
-            DataTable dtRecord = new DataTable();
-            sda.Fill(dtRecord);
-            return dtRecord;
+                DataTable dtRecord = new DataTable();
+                sda.Fill(dtRecord);
+                return dtRecord;
+            }
         }
 
+        //Metode til at indsætte kunde i DB
+
+        public void OpretKunde(string knavn, string kpostnr, string kbynavn, string kadr, string kemail, string ktlf)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand sqlCmd = new SqlCommand())
+                {
+                    sqlCmd.Connection = con;
+                    sqlCmd.CommandText = "INSERT INTO dbo.Kunde(Navn,Postnr,Bynavn,Adresse,Email,Tlfnr) VALUES(@knavn, @kpostnr, @kbynavn, @kadr,  @kemail, @ktlf)";
+                    sqlCmd.Parameters.AddWithValue("@knavn", knavn);
+                    sqlCmd.Parameters.AddWithValue("@kpostnr", kpostnr);
+                    sqlCmd.Parameters.AddWithValue("@kbynavn", kbynavn);
+                    sqlCmd.Parameters.AddWithValue("@kadr", kadr);
+                    sqlCmd.Parameters.AddWithValue("@kemail", kemail);
+                    sqlCmd.Parameters.AddWithValue("@ktlf", ktlf);
+                    con.Open();
+
+                    int result = sqlCmd.ExecuteNonQuery();
+
+                    if(result < 0)
+                    {
+                        MessageBox.Show("Database fejl ved oprettelse");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kunde oprettet");
+                    }
+
+                }
+
+            }
+        }
     }
 }
