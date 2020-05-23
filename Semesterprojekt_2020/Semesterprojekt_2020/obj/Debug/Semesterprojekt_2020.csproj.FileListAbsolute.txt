@@ -30,3 +30,10 @@ C:\Users\frede\OneDrive\Desktop\Semesterprojekt 2020 - 2. semester datamatiker\S
 C:\Users\frede\OneDrive\Desktop\Semesterprojekt 2020 - 2. semester datamatiker\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.csproj.CoreCompileInputs.cache
 C:\Users\frede\OneDrive\Desktop\Semesterprojekt 2020 - 2. semester datamatiker\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.exe
 C:\Users\frede\OneDrive\Desktop\Semesterprojekt 2020 - 2. semester datamatiker\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.pdb
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Kunder.Kunder.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Kunder.Kunde_sager.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Kunder.Opret_kunde.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Kunder.Rediger_kunde.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Medarbejere.Opret_medarbejder.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Medarbejere.Rediger_medarbejder.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Sager.Sager.resources

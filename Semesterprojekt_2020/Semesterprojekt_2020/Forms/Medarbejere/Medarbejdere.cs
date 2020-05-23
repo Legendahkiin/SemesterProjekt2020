@@ -16,5 +16,11 @@ namespace Semesterprojekt_2020.Forms
         {
             InitializeComponent();
         }
+
+        private void Medarbejdere_Load(object sender, EventArgs e)
+        {
+            SQLHandler handler = new SQLHandler();
+            medarbejder_oversigt.DataSource = handler.FyldDataGridView("dbo.Medarbejder");
+        }
     }
 }

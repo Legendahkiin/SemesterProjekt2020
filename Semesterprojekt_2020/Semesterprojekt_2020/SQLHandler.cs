@@ -12,10 +12,16 @@ namespace Semesterprojekt_2020
     // Vi laver en klasse der bruges til SQL håndtering (handling)
     class SQLHandler
     {
+        //Connection string sat op så den er nem at redigere
+        public static string SQLserver = "den1.mssql8.gear.host";
+        public static string database = "projekt2020";
+        public static string brugernavn = "projekt2020";
+        public static string kodeord = "Projekt2020@";
+        string connectionString = "Server=" + SQLserver + ";Database=" + database + ";User Id=" + brugernavn + ";Password=" + kodeord + ";";
 
         // En metode til at forbinde til databasen, ret unødvendig da vi forbinder os i alle andre metoder...
         // Kunne ændres så den ikke lukker forbindelsen selv (så man caller den for at starte forbindelsen, og en anden for at lukke)
-        public void ConnectToDatabase(string connectionString)
+        public void ConnectToDatabase()
         {
             // Vi skaber en forbindelse (using sørger for at forbindelsen lukkes "ordentligt" igen)
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -31,7 +37,7 @@ namespace Semesterprojekt_2020
         }
 
         // En metode til at køre en kommando på SQL serveren. Bruges ikke rigtig af mig, da jeg ofte skal gøre "mere" end bare køre en kommando
-        public void RunCommand(string command, string connectionString)
+        public void RunCommand(string command)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -45,7 +51,7 @@ namespace Semesterprojekt_2020
         
         // Giver ALT data fra en tabel (target)
         // Hvis vi vil vise fx kunder, så er target = "kunde" -- hvis medarbejdere, så er target = "medarbejder"
-        public void ReadDatabase(string target, string connectionString)
+        public void ReadDatabase(string target)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -182,6 +188,21 @@ namespace Semesterprojekt_2020
 
         }
 
+        // Metode til at fylde et DataGridView
+
+        public object FyldDataGridView(string tabel)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+
+            SqlCommand sqlCmd = new SqlCommand();
+            sqlCmd.Connection = con;
+            sqlCmd.CommandText = "SELECT * FROM " + tabel + "";
+            SqlDataAdapter sda = new SqlDataAdapter(sqlCmd);
+
+            DataTable dtRecord = new DataTable();
+            sda.Fill(dtRecord);
+            return dtRecord;
+        }
 
     }
 }

@@ -28,22 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.medarbejder_oversigt = new System.Windows.Forms.DataGridView();
             this.opr_medarbejder = new System.Windows.Forms.Button();
             this.slet_medarbejder = new System.Windows.Forms.Button();
             this.vis_timereg = new System.Windows.Forms.Button();
             this.vis_uddannelse = new System.Windows.Forms.Button();
             this.red_medarbejder = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.medarbejder_oversigt)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // medarbejder_oversigt
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 26);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 322);
-            this.dataGridView1.TabIndex = 0;
+            this.medarbejder_oversigt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.medarbejder_oversigt.Location = new System.Drawing.Point(12, 26);
+            this.medarbejder_oversigt.Name = "medarbejder_oversigt";
+            this.medarbejder_oversigt.Size = new System.Drawing.Size(776, 322);
+            this.medarbejder_oversigt.TabIndex = 0;
             // 
             // opr_medarbejder
             // 
@@ -110,17 +110,18 @@
             this.Controls.Add(this.vis_timereg);
             this.Controls.Add(this.slet_medarbejder);
             this.Controls.Add(this.opr_medarbejder);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.medarbejder_oversigt);
             this.Name = "Medarbejdere";
-            this.Text = "Kunder";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Text = "Medarbejdere";
+            this.Load += new System.EventHandler(this.Medarbejdere_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.medarbejder_oversigt)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView medarbejder_oversigt;
         private System.Windows.Forms.Button opr_medarbejder;
         private System.Windows.Forms.Button slet_medarbejder;
         private System.Windows.Forms.Button vis_timereg;

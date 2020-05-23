@@ -31,9 +31,9 @@
             this.red_kunde = new System.Windows.Forms.Button();
             this.slet_kunde = new System.Windows.Forms.Button();
             this.opr_kunde = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.kunde_oversigt = new System.Windows.Forms.DataGridView();
             this.vis_kunde_sager = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kunde_oversigt)).BeginInit();
             this.SuspendLayout();
             // 
             // red_kunde
@@ -69,13 +69,13 @@
             this.opr_kunde.Text = "Opret";
             this.opr_kunde.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // kunde_oversigt
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 28);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 322);
-            this.dataGridView1.TabIndex = 6;
+            this.kunde_oversigt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.kunde_oversigt.Location = new System.Drawing.Point(12, 28);
+            this.kunde_oversigt.Name = "kunde_oversigt";
+            this.kunde_oversigt.Size = new System.Drawing.Size(776, 322);
+            this.kunde_oversigt.TabIndex = 6;
             // 
             // vis_kunde_sager
             // 
@@ -97,10 +97,11 @@
             this.Controls.Add(this.vis_kunde_sager);
             this.Controls.Add(this.slet_kunde);
             this.Controls.Add(this.opr_kunde);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.kunde_oversigt);
             this.Name = "Kunder";
             this.Text = "Kunder";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.Kunder_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.kunde_oversigt)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -110,7 +111,7 @@
         private System.Windows.Forms.Button red_kunde;
         private System.Windows.Forms.Button slet_kunde;
         private System.Windows.Forms.Button opr_kunde;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView kunde_oversigt;
         private System.Windows.Forms.Button vis_kunde_sager;
     }
 }

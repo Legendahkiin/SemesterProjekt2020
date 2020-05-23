@@ -8,19 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Semesterprojekt_2020.Forms.Kunder
+namespace Semesterprojekt_2020.Forms.Sager
 {
-    public partial class Kunder : Form
+    public partial class Sager : Form
     {
-        public Kunder()
+        public Sager()
         {
             InitializeComponent();
         }
 
-        private void Kunder_Load(object sender, EventArgs e)
+        private void Sager_Load(object sender, EventArgs e)
         {
+
             SQLHandler handler = new SQLHandler();
-            kunde_oversigt.DataSource = handler.FyldDataGridView("dbo.Kunde");
+            sag_oversigt.DataSource = handler.FyldDataGridView("dbo.Sag");
         }
     }
 }
