@@ -31,13 +31,13 @@ namespace Semesterprojekt_2020
 
         private void Kunder_Click(object sender, EventArgs e)
         {
-            Form f = new Kunder();
+            Form f = new Kunde();
             f.Show();
         }
 
         private void Sager_Click(object sender, EventArgs e)
         {
-            Form f = new Sager();
+            Form f = new Sag();
             f.Show();
         }
     }

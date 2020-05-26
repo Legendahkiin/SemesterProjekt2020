@@ -1,6 +1,6 @@
 ﻿namespace Semesterprojekt_2020.Forms.Sager
 {
-    partial class Sager
+    partial class Sag
     {
         /// <summary>
         /// Required designer variable.

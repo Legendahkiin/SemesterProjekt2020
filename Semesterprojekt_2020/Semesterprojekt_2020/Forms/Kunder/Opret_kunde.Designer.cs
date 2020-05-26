@@ -31,6 +31,10 @@
             this.Annuller = new System.Windows.Forms.Button();
             this.opr_kunde = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.kunde_bynavn_txt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.kunde_adr_txt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.kunde_tlf_txt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.kunde_email_txt = new System.Windows.Forms.TextBox();
@@ -39,10 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.kunde_navn_txt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.kunde_adr_txt = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.kunde_bynavn_txt = new System.Windows.Forms.TextBox();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +54,7 @@
             this.Annuller.TabIndex = 35;
             this.Annuller.Text = "Annuller";
             this.Annuller.UseVisualStyleBackColor = true;
+            this.Annuller.Click += new System.EventHandler(this.Annuller_Click);
             // 
             // opr_kunde
             // 
@@ -85,6 +86,38 @@
             this.groupBox3.TabIndex = 33;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Opret kunde";
+            // 
+            // kunde_bynavn_txt
+            // 
+            this.kunde_bynavn_txt.Location = new System.Drawing.Point(251, 131);
+            this.kunde_bynavn_txt.Name = "kunde_bynavn_txt";
+            this.kunde_bynavn_txt.Size = new System.Drawing.Size(159, 20);
+            this.kunde_bynavn_txt.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(223, 134);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(22, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "By:";
+            // 
+            // kunde_adr_txt
+            // 
+            this.kunde_adr_txt.Location = new System.Drawing.Point(160, 157);
+            this.kunde_adr_txt.Name = "kunde_adr_txt";
+            this.kunde_adr_txt.Size = new System.Drawing.Size(251, 20);
+            this.kunde_adr_txt.TabIndex = 4;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 160);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Adresse:";
             // 
             // kunde_tlf_txt
             // 
@@ -149,38 +182,6 @@
             this.label1.Size = new System.Drawing.Size(36, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Navn:";
-            // 
-            // kunde_adr_txt
-            // 
-            this.kunde_adr_txt.Location = new System.Drawing.Point(160, 157);
-            this.kunde_adr_txt.Name = "kunde_adr_txt";
-            this.kunde_adr_txt.Size = new System.Drawing.Size(251, 20);
-            this.kunde_adr_txt.TabIndex = 4;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 160);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Adresse:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(223, 134);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(22, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "By:";
-            // 
-            // kunde_bynavn_txt
-            // 
-            this.kunde_bynavn_txt.Location = new System.Drawing.Point(251, 131);
-            this.kunde_bynavn_txt.Name = "kunde_bynavn_txt";
-            this.kunde_bynavn_txt.Size = new System.Drawing.Size(159, 20);
-            this.kunde_bynavn_txt.TabIndex = 3;
             // 
             // Opret_kunde
             // 
