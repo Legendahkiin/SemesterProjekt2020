@@ -18,6 +18,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
             InitializeComponent();
         }
 
+        //Henter data fra SQL og sætter det ind på labels og textbokse
         private void Rediger_kunde_Load(object sender, EventArgs e)
         {
             SQLHandler handler = new SQLHandler();
@@ -35,6 +36,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
             red_kunde_tlfnr.Text = handler.FyldRedKunde(KundeNummer, "Tlfnr");
         }
 
+        //Opdaterer data på kunde
         private void red_kunde_Click(object sender, EventArgs e)
         {
             SQLHandler handler = new SQLHandler();
@@ -42,6 +44,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
             
         }
 
+        //Anullerer og lukker vinduet
         private void Annuller_Click(object sender, EventArgs e)
         {
             Close();

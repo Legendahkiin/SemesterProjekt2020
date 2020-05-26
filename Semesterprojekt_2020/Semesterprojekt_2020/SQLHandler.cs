@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Semesterprojekt_2020.Forms.Kunder;
 
 namespace Semesterprojekt_2020
 {
@@ -188,7 +189,7 @@ namespace Semesterprojekt_2020
 
         }
 
-        // Metode til at fylde et DataGridView
+        // Metode til at fylde et DataGridView med alt fra en tabel
 
         public object FyldDataGridView(string tabel)
         {
@@ -199,6 +200,26 @@ namespace Semesterprojekt_2020
                 {
                     com.Connection = con;
                     com.CommandText = "SELECT * FROM " + tabel + "";
+                    SqlDataAdapter sda = new SqlDataAdapter(com);
+
+                    DataTable dtRecord = new DataTable();
+                    sda.Fill(dtRecord);
+                    return dtRecord;
+                }
+            }
+        }
+
+        //Metode til at fylde en sagsoversigt for en kunde, med mulighed for at vælge mellem åbne og lukkede sager
+
+        public object FyldKundeSagOversigt(int kundeNummer, string sagStatus)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT * FROM dbo.Sag WHERE KundeID =" + kundeNummer.ToString() + " AND SlutDato " + sagStatus;
                     SqlDataAdapter sda = new SqlDataAdapter(com);
 
                     DataTable dtRecord = new DataTable();
@@ -302,6 +323,34 @@ namespace Semesterprojekt_2020
 
                 }
             }
+        }
+
+        //Slet kunde
+        public void SletKunde(int KundeNummer)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "DELETE from dbo.Kunde WHERE KundeID =" + KundeNummer.ToString();
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+        private void ComboSagStatus()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                }
+
+            }
+
         }
     }
 }

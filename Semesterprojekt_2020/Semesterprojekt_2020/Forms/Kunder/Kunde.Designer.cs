@@ -58,6 +58,7 @@
             this.slet_kunde.TabIndex = 8;
             this.slet_kunde.Text = "Slet";
             this.slet_kunde.UseVisualStyleBackColor = true;
+            this.slet_kunde.Click += new System.EventHandler(this.slet_kunde_Click);
             // 
             // opr_kunde
             // 
@@ -90,8 +91,9 @@
             this.vis_kunde_sager.TabIndex = 9;
             this.vis_kunde_sager.Text = "Vis kundens sager";
             this.vis_kunde_sager.UseVisualStyleBackColor = true;
+            this.vis_kunde_sager.Click += new System.EventHandler(this.vis_kunde_sager_Click);
             // 
-            // Kunder
+            // Kunde
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -101,7 +103,7 @@
             this.Controls.Add(this.slet_kunde);
             this.Controls.Add(this.opr_kunde);
             this.Controls.Add(this.kunde_oversigt);
-            this.Name = "Kunder";
+            this.Name = "Kunde";
             this.Text = "Kunder";
             this.Load += new System.EventHandler(this.Kunder_Load);
             ((System.ComponentModel.ISupportInitialize)(this.kunde_oversigt)).EndInit();
