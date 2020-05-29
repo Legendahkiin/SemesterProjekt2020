@@ -64,6 +64,7 @@ namespace Semesterprojekt_2020.Forms.Medarbejere
                 {
                     handler.OpretMedarbejder(opr_med_navn.Text, opr_med_adr.Text, opr_med_postnr.Text, opr_med_bynavn.Text, opr_med_email.Text, opr_med_tlf.Text, Convert.ToInt32(stillingComboBox.SelectedValue));
                     handler.TilfojUddannelse("'" + opr_med_navn.Text + "'", "'" + opr_med_tlf.Text + "'");
+                    Close();
 
                 }
             }
@@ -71,6 +72,7 @@ namespace Semesterprojekt_2020.Forms.Medarbejere
             {
                 MessageBox.Show(fejl);
             }
+            
 
         }
 

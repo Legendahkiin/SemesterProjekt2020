@@ -28,6 +28,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
         private void opr_kunde_Click(object sender, EventArgs e)
         {
             Form f = new Opret_kunde();
+            f.FormClosed += f_FormClosed;
             f.Show();
         }
 

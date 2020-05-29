@@ -70,6 +70,7 @@
             this.red_sag.TabIndex = 40;
             this.red_sag.Text = "Rediger";
             this.red_sag.UseVisualStyleBackColor = true;
+            this.red_sag.Click += new System.EventHandler(this.red_sag_Click);
             // 
             // groupBox3
             // 

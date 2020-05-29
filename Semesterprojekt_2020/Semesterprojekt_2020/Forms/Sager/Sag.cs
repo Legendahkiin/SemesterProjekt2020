@@ -29,6 +29,7 @@ namespace Semesterprojekt_2020.Forms.Sager
         private void opr_sag_Click(object sender, EventArgs e)
         {
             Form f = new Opret_sag();
+            f.FormClosed += f_FormClosed;
             f.Show();
         }
 
@@ -51,6 +52,7 @@ namespace Semesterprojekt_2020.Forms.Sager
         private void red_sag_Click(object sender, EventArgs e)
         {
             Form f = new Rediger_sag();
+            f.FormClosed += f_FormClosed;
             f.Show();
         }
 
@@ -65,6 +67,10 @@ namespace Semesterprojekt_2020.Forms.Sager
                     MessageBox.Show(sagNavn + " er blevet slettet");
                 }
             }
+        }
+        private void f_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            sag_oversigt.DataSource = handler.FyldDataGridView("dbo.Sag");
         }
     }
 }
