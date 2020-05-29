@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using Semesterprojekt_2020.Forms.Kunder;
 
 namespace Semesterprojekt_2020
 {
@@ -188,23 +189,46 @@ namespace Semesterprojekt_2020
 
         }
 
-        // Metode til at fylde et DataGridView
+        // Metode til at fylde et DataGridView med alt fra en tabel
 
         public object FyldDataGridView(string tabel)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
 
-                SqlCommand sqlCmd = new SqlCommand();
-                sqlCmd.Connection = con;
-                sqlCmd.CommandText = "SELECT * FROM " + tabel + "";
-                SqlDataAdapter sda = new SqlDataAdapter(sqlCmd);
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT * FROM " + tabel + "";
+                    SqlDataAdapter sda = new SqlDataAdapter(com);
 
-                DataTable dtRecord = new DataTable();
-                sda.Fill(dtRecord);
-                return dtRecord;
+                    DataTable dtRecord = new DataTable();
+                    sda.Fill(dtRecord);
+                    return dtRecord;
+                }
             }
         }
+
+        //Metode til at fylde en sagsoversigt for en kunde, med mulighed for at vælge mellem åbne og lukkede sager
+
+        public object FyldKundeSagOversigt(int kundeNummer, string sagStatus)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT * FROM dbo.Sag WHERE KundeID =" + kundeNummer.ToString() + " AND SlutDato " + sagStatus;
+                    SqlDataAdapter sda = new SqlDataAdapter(com);
+
+                    DataTable dtRecord = new DataTable();
+                    sda.Fill(dtRecord);
+                    return dtRecord;
+                }
+            }
+        }
+
 
         //Metode til at indsætte kunde i DB
 
@@ -213,23 +237,23 @@ namespace Semesterprojekt_2020
             using (SqlConnection con = new SqlConnection(connectionString))
             {
 
-                using (SqlCommand sqlCmd = new SqlCommand())
+                using (SqlCommand com = new SqlCommand())
                 {
-                    sqlCmd.Connection = con;
-                    sqlCmd.CommandText = "INSERT INTO dbo.Kunde(Navn,Postnr,Bynavn,Adresse,Email,Tlfnr) VALUES(@knavn, @kpostnr, @kbynavn, @kadr,  @kemail, @ktlf)";
-                    sqlCmd.Parameters.AddWithValue("@knavn", knavn);
-                    sqlCmd.Parameters.AddWithValue("@kpostnr", kpostnr);
-                    sqlCmd.Parameters.AddWithValue("@kbynavn", kbynavn);
-                    sqlCmd.Parameters.AddWithValue("@kadr", kadr);
-                    sqlCmd.Parameters.AddWithValue("@kemail", kemail);
-                    sqlCmd.Parameters.AddWithValue("@ktlf", ktlf);
+                    com.Connection = con;
+                    com.CommandText = "INSERT INTO dbo.Kunde(Navn,Postnr,Bynavn,Adresse,Email,Tlfnr) VALUES(@knavn, @kpostnr, @kbynavn, @kadr,  @kemail, @ktlf)";
+                    com.Parameters.AddWithValue("@knavn", knavn);
+                    com.Parameters.AddWithValue("@kpostnr", kpostnr);
+                    com.Parameters.AddWithValue("@kbynavn", kbynavn);
+                    com.Parameters.AddWithValue("@kadr", kadr);
+                    com.Parameters.AddWithValue("@kemail", kemail);
+                    com.Parameters.AddWithValue("@ktlf", ktlf);
                     con.Open();
 
-                    int result = sqlCmd.ExecuteNonQuery();
+                    int result = com.ExecuteNonQuery();
 
-                    if(result < 0)
+                    if (result < 0)
                     {
-                        MessageBox.Show("Database fejl ved oprettelse");
+                        MessageBox.Show("Database fejl ved oprettelse.");
                     }
                     else
                     {
@@ -239,6 +263,94 @@ namespace Semesterprojekt_2020
                 }
 
             }
+        }
+
+        //Metode til at fylde Rediger kunde siden
+        public string FyldRedKunde(int KundeNummer, string kolonne)
+        {
+            string result = "";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT * FROM dbo.Kunde WHERE KundeID = " + KundeNummer.ToString();
+                    SqlDataReader dr = com.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            result += dr[kolonne].ToString();
+                            break;
+                        }
+                        con.Close();
+                        return result;
+                    }
+                    else
+                    {
+                        con.Close();
+                        result += "FEJL";
+                        return result;
+                    }
+
+
+                }
+            }
+        }
+
+        //Metode til at opdatere kunde
+        public void OpdaterKunde(int KundeNummer, string knavn, string kpostnr, string kbynavn, string kadr, string kemail, string ktlf)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "UPDATE dbo.Kunde SET Navn=@knavn, Postnr=@kpostnr, Bynavn=@kbynavn, Adresse=@kadr, Email=@kemail, Tlfnr=@ktlf WHERE KundeID = " + KundeNummer.ToString();
+                    con.Open();
+                    com.Parameters.AddWithValue("@knavn", knavn);
+                    com.Parameters.AddWithValue("@kpostnr", kpostnr);
+                    com.Parameters.AddWithValue("@kbynavn", kbynavn);
+                    com.Parameters.AddWithValue("@kadr", kadr);
+                    com.Parameters.AddWithValue("@kemail", kemail);
+                    com.Parameters.AddWithValue("@ktlf", ktlf);
+                    com.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show("Kunde opdateret.");
+
+
+                }
+            }
+        }
+
+        //Slet kunde
+        public void SletKunde(int KundeNummer)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "DELETE from dbo.Kunde WHERE KundeID =" + KundeNummer.ToString();
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+        private void ComboSagStatus()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                }
+
+            }
+
         }
     }
 }

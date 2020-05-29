@@ -12,9 +12,39 @@ namespace Semesterprojekt_2020.Forms.Kunder
 {
     public partial class Kunde_sager : Form
     {
+        string sagStatus = "";
         public Kunde_sager()
         {
             InitializeComponent();
+            Dictionary<string, int> dictStatus = new Dictionary<string, int>();
+            dictStatus.Add("Åben", 1);
+            dictStatus.Add("Lukket", 2);
+
+            sag_status.DataSource = new BindingSource(dictStatus, null);
+            sag_status.DisplayMember = "Key";
+            sag_status.ValueMember = "Value";
+        }
+        
+        SQLHandler handler = new SQLHandler();
+
+
+        private void Kunde_sager_Load(object sender, EventArgs e)
+        {
+            kunde_sager_navn.Text = handler.FyldRedKunde(Kunde.KundeNummer, "Navn");
+        }
+
+        private void sag_status_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            if (sag_status.SelectedValue.ToString() == "1")
+            {
+                sagStatus = "IS NOT NULL";
+            }
+            else
+            {
+                sagStatus = "IS NULL";
+            }
+            kunde_sag_oversigt.DataSource = handler.FyldKundeSagOversigt(Kunde.KundeNummer, sagStatus);
         }
     }
 }

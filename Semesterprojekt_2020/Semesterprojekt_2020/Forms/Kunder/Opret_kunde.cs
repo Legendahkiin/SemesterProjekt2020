@@ -28,42 +28,42 @@ namespace Semesterprojekt_2020.Forms.Kunder
             }
             else
             {
-                besked += "Du skal indtaste et navn.";
+                besked += "Du skal indtaste et navn.\r\n";
             }
             if (kunde_postnr_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste en postnummer.";
+                besked += "Du skal indtaste en postnummer.\r\n";
             }
             if (kunde_bynavn_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste et bynavn";
+                besked += "Du skal indtaste et bynavn.\r\n";
             }
             if (kunde_adr_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste et adresse.";
+                besked += "Du skal indtaste et adresse.\r\n";
             }
             if (kunde_email_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste en e-mail";
+                besked += "Du skal indtaste en e-mail. \r\n";
             }
             if (kunde_tlf_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste et telefonnummer";
+                besked += "Du skal indtaste et telefonnummer. \r\n";
             }
 
             if(besked == "")
@@ -71,7 +71,15 @@ namespace Semesterprojekt_2020.Forms.Kunder
                 SQLHandler handler = new SQLHandler();
                 handler.OpretKunde(kunde_navn_txt.Text, kunde_postnr_txt.Text, kunde_bynavn_txt.Text, kunde_adr_txt.Text, kunde_email_txt.Text, kunde_tlf_txt.Text);
             }
+            else
+            {
+                MessageBox.Show(besked);
+            }
         }
 
+        private void Annuller_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

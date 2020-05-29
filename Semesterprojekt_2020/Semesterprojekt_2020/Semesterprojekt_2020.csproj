@@ -49,11 +49,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Kunder\Kunder.cs">
+    <Compile Include="Forms\Kunder\Kunde.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Kunder\Kunder.Designer.cs">
-      <DependentUpon>Kunder.cs</DependentUpon>
+    <Compile Include="Forms\Kunder\Kunde.Designer.cs">
+      <DependentUpon>Kunde.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Kunder\Kunde_sager.cs">
       <SubType>Form</SubType>
@@ -91,11 +91,11 @@
     <Compile Include="Forms\Medarbejere\Timeregistrereing.Designer.cs">
       <DependentUpon>Timeregistrereing.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Medarbejere\Medarbejdere.cs">
+    <Compile Include="Forms\Medarbejere\Medarbejder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Medarbejere\Medarbejdere.Designer.cs">
-      <DependentUpon>Medarbejdere.cs</DependentUpon>
+    <Compile Include="Forms\Medarbejere\Medarbejder.Designer.cs">
+      <DependentUpon>Medarbejder.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Menu.cs">
       <SubType>Form</SubType>
@@ -109,17 +109,17 @@
     <Compile Include="Forms\Medarbejere\Uddannelse.Designer.cs">
       <DependentUpon>Uddannelse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Sager\Sager.cs">
+    <Compile Include="Forms\Sager\Sag.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Sager\Sager.Designer.cs">
-      <DependentUpon>Sager.cs</DependentUpon>
+    <Compile Include="Forms\Sager\Sag.Designer.cs">
+      <DependentUpon>Sag.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLHandler.cs" />
-    <EmbeddedResource Include="Forms\Kunder\Kunder.resx">
-      <DependentUpon>Kunder.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Kunder\Kunde.resx">
+      <DependentUpon>Kunde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Kunder\Kunde_sager.resx">
       <DependentUpon>Kunde_sager.cs</DependentUpon>
@@ -139,8 +139,8 @@
     <EmbeddedResource Include="Forms\Medarbejere\Timeregistrereing.resx">
       <DependentUpon>Timeregistrereing.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Medarbejere\Medarbejdere.resx">
-      <DependentUpon>Medarbejdere.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Medarbejere\Medarbejder.resx">
+      <DependentUpon>Medarbejder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Menu.resx">
       <DependentUpon>Menu.cs</DependentUpon>
@@ -148,8 +148,8 @@
     <EmbeddedResource Include="Forms\Medarbejere\Uddannelse.resx">
       <DependentUpon>Uddannelse.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Sager\Sager.resx">
-      <DependentUpon>Sager.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Sager\Sag.resx">
+      <DependentUpon>Sag.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

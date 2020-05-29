@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Semesterprojekt_2020.Forms.Sager
 {
-    public partial class Sager : Form
+    public partial class Sag : Form
     {
-        public Sager()
+        public Sag()
         {
             InitializeComponent();
         }
