@@ -192,7 +192,7 @@
             this.Controls.Add(this.opr_kunde);
             this.Controls.Add(this.groupBox3);
             this.Name = "Opret_kunde";
-            this.Text = "Opret_kunde";
+            this.Text = "Opret Kunde";
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);

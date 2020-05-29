@@ -1,6 +1,6 @@
-﻿namespace Semesterprojekt_2020.Forms
+﻿namespace Semesterprojekt_2020.Forms.Medarbejere
 {
-    partial class Uddannelse
+    partial class Opret_medarbejder_uddannelse
     {
         /// <summary>
         /// Required designer variable.
@@ -48,10 +48,10 @@
             // 
             this.groupBox3.Controls.Add(this.navn);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(13, 12);
+            this.groupBox3.Location = new System.Drawing.Point(12, 12);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(242, 63);
-            this.groupBox3.TabIndex = 4;
+            this.groupBox3.TabIndex = 9;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Uddannelse for:";
             // 
@@ -81,7 +81,7 @@
             this.groupBox1.Location = new System.Drawing.Point(106, 92);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(224, 346);
-            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nuværende uddannelse";
             // 
@@ -102,7 +102,6 @@
             this.combobox_fjern_udd.Name = "combobox_fjern_udd";
             this.combobox_fjern_udd.Size = new System.Drawing.Size(212, 21);
             this.combobox_fjern_udd.TabIndex = 1;
-            this.combobox_fjern_udd.SelectedIndexChanged += new System.EventHandler(this.combobox_fjern_udd_SelectedIndexChanged);
             // 
             // nu_udd
             // 
@@ -120,7 +119,7 @@
             this.groupBox2.Location = new System.Drawing.Point(467, 92);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(224, 346);
-            this.groupBox2.TabIndex = 10;
+            this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tilgængelig uddannelse";
             // 
@@ -141,7 +140,6 @@
             this.combobox_tilfoj_udd.Name = "combobox_tilfoj_udd";
             this.combobox_tilfoj_udd.Size = new System.Drawing.Size(212, 21);
             this.combobox_tilfoj_udd.TabIndex = 2;
-            this.combobox_tilfoj_udd.SelectedIndexChanged += new System.EventHandler(this.combobox_tilfoj_udd_SelectedIndexChanged);
             // 
             // tilg_udd
             // 
@@ -156,17 +154,17 @@
             this.tilg_udd.Size = new System.Drawing.Size(212, 264);
             this.tilg_udd.TabIndex = 1;
             // 
-            // Uddannelse
+            // Opret_medarbejder_uddannelse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox3);
-            this.Name = "Uddannelse";
-            this.Text = "Rediger uddannelse";
-            this.Load += new System.EventHandler(this.Uddannelse_Load);
+            this.Name = "Opret_medarbejder_uddannelse";
+            this.Text = "Medarbejder uddannelse";
+            this.Load += new System.EventHandler(this.Opret_medarbejder_uddanelse_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -182,12 +180,12 @@
         private System.Windows.Forms.Label navn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox combobox_fjern_udd;
         private System.Windows.Forms.ListBox nu_udd;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ListBox tilg_udd;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox combobox_fjern_udd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox combobox_tilfoj_udd;
-        private System.Windows.Forms.ListBox tilg_udd;
     }
 }

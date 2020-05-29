@@ -30,7 +30,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
 
         private void Kunde_sager_Load(object sender, EventArgs e)
         {
-            kunde_sager_navn.Text = handler.FyldRedKunde(Kunde.KundeNummer, "Navn");
+            kunde_sager_navn.Text = handler.FyldRedKunde(Kunde.kundeNummer, "Navn");
         }
 
         private void sag_status_SelectedValueChanged(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
             {
                 sagStatus = "IS NULL";
             }
-            kunde_sag_oversigt.DataSource = handler.FyldKundeSagOversigt(Kunde.KundeNummer, sagStatus);
+            kunde_sag_oversigt.DataSource = handler.FyldKundeSagOversigt(Kunde.kundeNummer, sagStatus);
         }
     }
 }

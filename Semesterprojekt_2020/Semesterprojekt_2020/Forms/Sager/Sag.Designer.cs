@@ -39,29 +39,31 @@
             // opr_sag
             // 
             this.opr_sag.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.opr_sag.Location = new System.Drawing.Point(133, 371);
+            this.opr_sag.Location = new System.Drawing.Point(119, 371);
             this.opr_sag.Margin = new System.Windows.Forms.Padding(0, 20, 0, 20);
             this.opr_sag.Name = "opr_sag";
             this.opr_sag.Size = new System.Drawing.Size(100, 50);
             this.opr_sag.TabIndex = 2;
             this.opr_sag.Text = "Opret";
             this.opr_sag.UseVisualStyleBackColor = true;
+            this.opr_sag.Click += new System.EventHandler(this.opr_sag_Click);
             // 
             // red_sag
             // 
             this.red_sag.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.red_sag.Location = new System.Drawing.Point(277, 371);
+            this.red_sag.Location = new System.Drawing.Point(263, 371);
             this.red_sag.Margin = new System.Windows.Forms.Padding(0, 20, 0, 20);
             this.red_sag.Name = "red_sag";
             this.red_sag.Size = new System.Drawing.Size(100, 50);
             this.red_sag.TabIndex = 6;
             this.red_sag.Text = "Rediger";
             this.red_sag.UseVisualStyleBackColor = true;
+            this.red_sag.Click += new System.EventHandler(this.red_sag_Click);
             // 
             // slet_sag
             // 
             this.slet_sag.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.slet_sag.Location = new System.Drawing.Point(422, 371);
+            this.slet_sag.Location = new System.Drawing.Point(408, 371);
             this.slet_sag.Margin = new System.Windows.Forms.Padding(0, 20, 0, 20);
             this.slet_sag.Name = "slet_sag";
             this.slet_sag.Size = new System.Drawing.Size(100, 50);
@@ -72,13 +74,14 @@
             // vis_sag
             // 
             this.vis_sag.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.vis_sag.Location = new System.Drawing.Point(566, 371);
+            this.vis_sag.Location = new System.Drawing.Point(552, 371);
             this.vis_sag.Margin = new System.Windows.Forms.Padding(0, 20, 0, 20);
             this.vis_sag.Name = "vis_sag";
             this.vis_sag.Size = new System.Drawing.Size(100, 50);
             this.vis_sag.TabIndex = 8;
             this.vis_sag.Text = "Vis mere info";
             this.vis_sag.UseVisualStyleBackColor = true;
+            this.vis_sag.Click += new System.EventHandler(this.vis_sag_Click);
             // 
             // sag_oversigt
             // 
@@ -87,8 +90,9 @@
             this.sag_oversigt.Name = "sag_oversigt";
             this.sag_oversigt.Size = new System.Drawing.Size(776, 322);
             this.sag_oversigt.TabIndex = 9;
+            this.sag_oversigt.SelectionChanged += new System.EventHandler(this.sag_oversigt_SelectionChanged);
             // 
-            // Sager
+            // Sag
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -98,7 +102,7 @@
             this.Controls.Add(this.slet_sag);
             this.Controls.Add(this.red_sag);
             this.Controls.Add(this.opr_sag);
-            this.Name = "Sager";
+            this.Name = "Sag";
             this.Text = "Sager";
             this.Load += new System.EventHandler(this.Sager_Load);
             ((System.ComponentModel.ISupportInitialize)(this.sag_oversigt)).EndInit();
