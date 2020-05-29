@@ -27,7 +27,7 @@ namespace Semesterprojekt_2020.Forms.Sager
             sag_knavn.Text = handler.FyldSagOversigt(Sag.sagNummer, "KundeNavn");
             sag_tlf.Text = handler.FyldSagOversigt(Sag.sagNummer, "Tlfnr");
             sag_email.Text = handler.FyldSagOversigt(Sag.sagNummer, "Email");
-            label9.Text = handler.FyldSagOversigt(Sag.sagNummer, "Postnr");
+            sag_postnr.Text = handler.FyldSagOversigt(Sag.sagNummer, "Postnr");
             sag_bynavn.Text = handler.FyldSagOversigt(Sag.sagNummer, "Bynavn");
             sag_adresse.Text = handler.FyldSagOversigt(Sag.sagNummer, "Adresse");
             sag_esttimer.Text = handler.FyldSagOversigt(Sag.sagNummer, "EstTimer");

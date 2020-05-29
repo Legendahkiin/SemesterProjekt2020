@@ -766,5 +766,28 @@ namespace Semesterprojekt_2020
             }
 
         }
+
+        public void OpdaterSag(int sagNummer, string sagnavn, string esttimer, string startdato, string kundeid, string advokatid)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "UPDATE dbo.Sag SET SagNavn=@sagnavn, EstTimer=@esttimer, StartDato= " + startdato + ", KundeID=@kundeid, MedID=@advokatid WHERE MedID = " + sagNummer.ToString();
+                    con.Open();
+                    com.Parameters.AddWithValue("@sagnavn", sagnavn);
+                    com.Parameters.AddWithValue("@esttimer", esttimer);
+                    com.Parameters.AddWithValue("@kundeid", kundeid);
+                    com.Parameters.AddWithValue("@advokatid", advokatid);
+                    com.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show(sagnavn + " er blevet redigeret.");
+
+
+                }
+            }
+        }
     }
 }

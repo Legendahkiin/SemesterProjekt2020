@@ -47,6 +47,7 @@ namespace Semesterprojekt_2020.Forms.Sager
                 if (dialogResult == DialogResult.Yes)
                 {
                     handler.OpretSag(sag_navn_txt.Text, Valg_kunde.valgKundeID, Valg_advokat.valgMedID, "'" + sag_startdato.Value.ToString("yyyy-MM-dd") + "'", sag_esttimer_txt.Text);
+                    Close();
                 }
             }
             else

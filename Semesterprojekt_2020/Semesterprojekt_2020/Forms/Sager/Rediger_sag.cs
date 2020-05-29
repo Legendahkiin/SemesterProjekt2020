@@ -58,5 +58,17 @@ namespace Semesterprojekt_2020.Forms.Sager
         {
             Close();
         }
+
+        private void red_sag_Click(object sender, EventArgs e)
+        {
+            //Viser en ja/nej boks inden kunde bliver slettet
+            DialogResult dialogResult = MessageBox.Show("Er du sikker på at du vil redigere " + red_sag_navn_txt.Text + "?", "Rediger?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                handler.OpdaterSag(Sag.sagNummer, red_sag_navn_txt.Text, red_sag_esttimer_txt.Text, "'" + red_sag_startdato.Value.ToString("yyyy-MM-dd") + "'", red_sag_kundeid.Text, red_sag_medid.Text);
+                Close();
+            }
+        }
     }
 }
+

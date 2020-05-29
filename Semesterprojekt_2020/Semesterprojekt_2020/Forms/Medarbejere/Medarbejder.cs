@@ -29,12 +29,14 @@ namespace Semesterprojekt_2020.Forms
         private void opr_medarbejder_Click(object sender, EventArgs e)
         {
             Form f = new Opret_medarbejder();
+            f.FormClosed += f_FormClosed;
             f.Show();
         }
 
         private void red_medarbejder_Click(object sender, EventArgs e)
         {
             Form f = new Rediger_medarbejder();
+            f.FormClosed += f_FormClosed;
             f.Show();
         }
 
@@ -71,6 +73,12 @@ namespace Semesterprojekt_2020.Forms
                 medarbejderNavn = (string)row.Cells["Navn"].Value;
             }
 
+        }
+
+        //Opdaterer oversigten når kunden er redigeret 
+        private void f_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            medarbejder_oversigt.DataSource = handler.FyldDataGridView("dbo.Medarbejder");
         }
     }
 }
