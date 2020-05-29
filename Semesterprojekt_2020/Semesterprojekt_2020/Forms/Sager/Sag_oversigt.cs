@@ -35,6 +35,8 @@ namespace Semesterprojekt_2020.Forms.Sager
             sag_slutdato.Text = slutDatoArray[0];
 
             sag_timeoversigt.DataSource = handler.FyldSagTimeOversigt(Sag.sagNummer);
+            sag_antaltimer.Text = SumAntalTimer(); 
+            sag_antalkm.Text = SumAntalKilometer();
 
         }
 
@@ -42,6 +44,28 @@ namespace Semesterprojekt_2020.Forms.Sager
         {
             Form f = new Tilfoj_time();
             f.Show();
+        }
+        private string SumAntalKilometer()
+        {
+            int sum = 0;
+            foreach (DataGridViewRow r in sag_timeoversigt.Rows)
+            {
+                {
+                    sum += Convert.ToInt32(r.Cells["AntalKM"].Value);
+                }
+            }
+            return sum.ToString();
+        }
+        private string SumAntalTimer()
+        {
+            int sum = 0;
+            foreach (DataGridViewRow r in sag_timeoversigt.Rows)
+            {
+                {
+                    sum += Convert.ToInt32(r.Cells["AntalTimer"].Value);
+                }
+            }
+            return sum.ToString();
         }
     }
 }

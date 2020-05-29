@@ -327,7 +327,8 @@ namespace Semesterprojekt_2020
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = "INSERT INTO dbo.Medarbejder(Navn,Adresse,Postnr,Bynavn,Email,Tlfnr, StillingID) VALUES(@mnavn, @madr, @mpostnr, @mbynavn, @memail, @mtlf, @mstillingID)";
+                    com.CommandText = ("INSERT INTO dbo.Medarbejder(Navn,Adresse,Postnr,Bynavn,Email,Tlfnr, StillingID) " +
+                        "VALUES(@mnavn, @madr, @mpostnr, @mbynavn, @memail, @mtlf, @mstillingID)");
                     com.Parameters.AddWithValue("@mnavn", mnavn);
                     com.Parameters.AddWithValue("@madr", madr);
                     com.Parameters.AddWithValue("@mpostnr", mpostnr);
@@ -471,7 +472,8 @@ namespace Semesterprojekt_2020
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = "SELECT m.*, s.StillingNavn FROM dbo.Medarbejder m JOIN dbo.Stilling s ON m.StillingID = s.StillingID WHERE MedID =" + medarbejderNummer.ToString();
+                    com.CommandText = ("SELECT m.*, s.StillingNavn FROM dbo.Medarbejder m " +
+                        "JOIN dbo.Stilling s ON m.StillingID = s.StillingID WHERE MedID =" + medarbejderNummer.ToString());
                     SqlDataReader dr = com.ExecuteReader();
                     if (dr.HasRows)
                     {

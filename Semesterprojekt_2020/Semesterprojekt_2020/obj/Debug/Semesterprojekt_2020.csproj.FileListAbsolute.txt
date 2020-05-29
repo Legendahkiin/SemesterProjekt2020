@@ -44,3 +44,4 @@ C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Se
 C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Sager.Valg_advokat.resources
 C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Sager.Rediger_sag.resources
 C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Sager.Tilfoj_time.resources
+C:\Users\Jonas\OneDrive\Lillebælt\2. semesterprojekt\VS\Semesterprojekt_2020\Semesterprojekt_2020\obj\Debug\Semesterprojekt_2020.Forms.Verdensur.resources

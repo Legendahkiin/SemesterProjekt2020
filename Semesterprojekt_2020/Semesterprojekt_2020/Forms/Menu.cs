@@ -40,5 +40,11 @@ namespace Semesterprojekt_2020
             Form f = new Sag();
             f.Show();
         }
+
+        private void verdensur_Click(object sender, EventArgs e)
+        {
+            Form f = new Verdensur();
+            f.Show();
+        }
     }
 }

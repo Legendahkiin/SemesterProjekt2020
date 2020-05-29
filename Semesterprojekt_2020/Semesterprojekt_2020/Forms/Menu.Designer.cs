@@ -31,6 +31,7 @@
             this.Medarbejdere = new System.Windows.Forms.Button();
             this.Kunder = new System.Windows.Forms.Button();
             this.Sager = new System.Windows.Forms.Button();
+            this.verdensur = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Medarbejdere
@@ -69,11 +70,24 @@
             this.Sager.UseVisualStyleBackColor = true;
             this.Sager.Click += new System.EventHandler(this.Sager_Click);
             // 
+            // verdensur
+            // 
+            this.verdensur.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.verdensur.Location = new System.Drawing.Point(106, 243);
+            this.verdensur.Margin = new System.Windows.Forms.Padding(0);
+            this.verdensur.Name = "verdensur";
+            this.verdensur.Size = new System.Drawing.Size(100, 50);
+            this.verdensur.TabIndex = 3;
+            this.verdensur.Text = "Verdensur";
+            this.verdensur.UseVisualStyleBackColor = true;
+            this.verdensur.Click += new System.EventHandler(this.verdensur_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 338);
+            this.Controls.Add(this.verdensur);
             this.Controls.Add(this.Sager);
             this.Controls.Add(this.Kunder);
             this.Controls.Add(this.Medarbejdere);
@@ -88,6 +102,7 @@
         private System.Windows.Forms.Button Medarbejdere;
         private System.Windows.Forms.Button Kunder;
         private System.Windows.Forms.Button Sager;
+        private System.Windows.Forms.Button verdensur;
     }
 }
 
