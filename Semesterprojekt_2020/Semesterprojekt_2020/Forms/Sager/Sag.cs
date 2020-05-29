@@ -56,6 +56,15 @@ namespace Semesterprojekt_2020.Forms.Sager
 
         private void slet_sag_Click(object sender, EventArgs e)
         {
+            {
+                //Viser en ja / nej boks inden medarbejder bliver oprettet
+                DialogResult dialogResult = MessageBox.Show("Er du sikker på at du vil slette " + sagNavn + "?", "Opret " + sagNavn + "?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    handler.SletMedarbejder(sagNummer);
+                    MessageBox.Show(sagNavn + " er blevet slettet");
+                }
+            }
         }
     }
 }
