@@ -55,6 +55,15 @@ namespace Semesterprojekt_2020.Forms.Kunder
         //Slet kunde ved klik
         private void slet_kunde_Click(object sender, EventArgs e)
         {
+            {
+                //Viser en ja / nej boks inden medarbejder bliver oprettet
+                DialogResult dialogResult = MessageBox.Show("Er du sikker på at du vil slette " + kundeNavn + "?", "Opret " + kundeNavn + "?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    handler.SletMedarbejder(kundeNummer);
+                    MessageBox.Show(kundeNavn + " er blevet slettet");
+                }
+            }
         }
 
         private void vis_kunde_sager_Click(object sender, EventArgs e)
