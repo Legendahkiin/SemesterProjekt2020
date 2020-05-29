@@ -13,7 +13,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
     public partial class Kunde : Form
     {
         SQLHandler handler = new SQLHandler();
-        public static int KundeNummer = 1;
+        public static int kundeNummer = 1;
         string kundeNavn = "";
         public Kunde()
         {
@@ -47,7 +47,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
         {
             foreach (DataGridViewRow row in kunde_oversigt.SelectedRows)
             {
-                KundeNummer = (int)row.Cells["KundeID"].Value;
+                kundeNummer = (int)row.Cells["KundeID"].Value;
                 kundeNavn = (string)row.Cells["Navn"].Value;
             }
         }
@@ -55,15 +55,6 @@ namespace Semesterprojekt_2020.Forms.Kunder
         //Slet kunde ved klik
         private void slet_kunde_Click(object sender, EventArgs e)
         {
-
-            //Viser en ja/nej boks inden kunde bliver slettet
-            DialogResult dialogResult = MessageBox.Show("Er du sikker på at du vil slette " + kundeNavn + "?", "Slet?", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                handler.SletKunde(KundeNummer);
-                MessageBox.Show("Kunden er slettet");
-            }
-            kunde_oversigt.DataSource = handler.FyldDataGridView("dbo.Kunde");
         }
 
         private void vis_kunde_sager_Click(object sender, EventArgs e)

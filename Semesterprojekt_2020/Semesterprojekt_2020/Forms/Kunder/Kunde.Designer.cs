@@ -74,9 +74,12 @@
             // 
             // kunde_oversigt
             // 
+            this.kunde_oversigt.AllowUserToAddRows = false;
+            this.kunde_oversigt.AllowUserToDeleteRows = false;
             this.kunde_oversigt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.kunde_oversigt.Location = new System.Drawing.Point(12, 28);
             this.kunde_oversigt.Name = "kunde_oversigt";
+            this.kunde_oversigt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.kunde_oversigt.Size = new System.Drawing.Size(776, 322);
             this.kunde_oversigt.TabIndex = 6;
             this.kunde_oversigt.SelectionChanged += new System.EventHandler(this.kunde_oversigt_SelectionChanged);

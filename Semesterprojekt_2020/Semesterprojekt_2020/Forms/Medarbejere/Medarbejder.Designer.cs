@@ -39,11 +39,21 @@
             // 
             // medarbejder_oversigt
             // 
+            this.medarbejder_oversigt.AllowUserToAddRows = false;
+            this.medarbejder_oversigt.AllowUserToDeleteRows = false;
+            this.medarbejder_oversigt.AllowUserToResizeColumns = false;
+            this.medarbejder_oversigt.AllowUserToResizeRows = false;
+            this.medarbejder_oversigt.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.medarbejder_oversigt.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.medarbejder_oversigt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.medarbejder_oversigt.Location = new System.Drawing.Point(12, 26);
+            this.medarbejder_oversigt.MultiSelect = false;
             this.medarbejder_oversigt.Name = "medarbejder_oversigt";
+            this.medarbejder_oversigt.ReadOnly = true;
+            this.medarbejder_oversigt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.medarbejder_oversigt.Size = new System.Drawing.Size(776, 322);
             this.medarbejder_oversigt.TabIndex = 0;
+            this.medarbejder_oversigt.SelectionChanged += new System.EventHandler(this.medarbejder_oversigt_SelectionChanged);
             // 
             // opr_medarbejder
             // 
@@ -55,6 +65,7 @@
             this.opr_medarbejder.TabIndex = 1;
             this.opr_medarbejder.Text = "Opret";
             this.opr_medarbejder.UseVisualStyleBackColor = true;
+            this.opr_medarbejder.Click += new System.EventHandler(this.opr_medarbejder_Click);
             // 
             // slet_medarbejder
             // 
@@ -66,6 +77,7 @@
             this.slet_medarbejder.TabIndex = 2;
             this.slet_medarbejder.Text = "Slet";
             this.slet_medarbejder.UseVisualStyleBackColor = true;
+            this.slet_medarbejder.Click += new System.EventHandler(this.slet_medarbejder_Click);
             // 
             // vis_timereg
             // 
@@ -77,6 +89,7 @@
             this.vis_timereg.TabIndex = 3;
             this.vis_timereg.Text = "Vis timeregistrering";
             this.vis_timereg.UseVisualStyleBackColor = true;
+            this.vis_timereg.Click += new System.EventHandler(this.vis_timereg_Click);
             // 
             // vis_uddannelse
             // 
@@ -88,6 +101,7 @@
             this.vis_uddannelse.TabIndex = 4;
             this.vis_uddannelse.Text = "Vis uddannelse";
             this.vis_uddannelse.UseVisualStyleBackColor = true;
+            this.vis_uddannelse.Click += new System.EventHandler(this.vis_uddannelse_Click);
             // 
             // red_medarbejder
             // 
@@ -99,6 +113,7 @@
             this.red_medarbejder.TabIndex = 5;
             this.red_medarbejder.Text = "Rediger";
             this.red_medarbejder.UseVisualStyleBackColor = true;
+            this.red_medarbejder.Click += new System.EventHandler(this.red_medarbejder_Click);
             // 
             // Medarbejdere
             // 

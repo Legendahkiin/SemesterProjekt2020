@@ -106,9 +106,12 @@
             // 
             // kunde_sag_oversigt
             // 
+            this.kunde_sag_oversigt.AllowUserToAddRows = false;
+            this.kunde_sag_oversigt.AllowUserToDeleteRows = false;
             this.kunde_sag_oversigt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.kunde_sag_oversigt.Location = new System.Drawing.Point(12, 130);
             this.kunde_sag_oversigt.Name = "kunde_sag_oversigt";
+            this.kunde_sag_oversigt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.kunde_sag_oversigt.Size = new System.Drawing.Size(776, 308);
             this.kunde_sag_oversigt.TabIndex = 2;
             // 
@@ -120,7 +123,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.kunde_sag_oversigt);
             this.Name = "Kunde_sager";
-            this.Text = "Kunde_sager";
+            this.Text = "Kunde sager";
             this.Load += new System.EventHandler(this.Kunde_sager_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

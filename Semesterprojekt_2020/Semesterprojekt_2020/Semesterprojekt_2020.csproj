@@ -36,6 +36,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -79,17 +80,23 @@
     <Compile Include="Forms\Medarbejere\Opret_medarbejder.Designer.cs">
       <DependentUpon>Opret_medarbejder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Medarbejere\Opret_medarbejder_uddannelse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Medarbejere\Opret_medarbejder_uddannelse.Designer.cs">
+      <DependentUpon>Opret_medarbejder_uddannelse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Medarbejere\Rediger_medarbejder.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Medarbejere\Rediger_medarbejder.Designer.cs">
       <DependentUpon>Rediger_medarbejder.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Medarbejere\Timeregistrereing.cs">
+    <Compile Include="Forms\Medarbejere\Medarbejder_timeoversigt.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Medarbejere\Timeregistrereing.Designer.cs">
-      <DependentUpon>Timeregistrereing.cs</DependentUpon>
+    <Compile Include="Forms\Medarbejere\Medarbejder_timeoversigt.Designer.cs">
+      <DependentUpon>Medarbejder_timeoversigt.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Medarbejere\Medarbejder.cs">
       <SubType>Form</SubType>
@@ -109,11 +116,47 @@
     <Compile Include="Forms\Medarbejere\Uddannelse.Designer.cs">
       <DependentUpon>Uddannelse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Sager\Opret_sag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sager\Opret_sag.Designer.cs">
+      <DependentUpon>Opret_sag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Sager\Sag.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Sager\Sag.Designer.cs">
       <DependentUpon>Sag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sager\Sag_oversigt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sager\Sag_oversigt.Designer.cs">
+      <DependentUpon>Sag_oversigt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sager\Rediger_sag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sager\Rediger_sag.Designer.cs">
+      <DependentUpon>Rediger_sag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sager\Tilfoj_time.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sager\Tilfoj_time.Designer.cs">
+      <DependentUpon>Tilfoj_time.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sager\Valg_advokat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sager\Valg_advokat.Designer.cs">
+      <DependentUpon>Valg_advokat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sager\Valg_kunde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sager\Valg_kunde.Designer.cs">
+      <DependentUpon>Valg_kunde.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -133,11 +176,14 @@
     <EmbeddedResource Include="Forms\Medarbejere\Opret_medarbejder.resx">
       <DependentUpon>Opret_medarbejder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Medarbejere\Opret_medarbejder_uddannelse.resx">
+      <DependentUpon>Opret_medarbejder_uddannelse.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medarbejere\Rediger_medarbejder.resx">
       <DependentUpon>Rediger_medarbejder.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Medarbejere\Timeregistrereing.resx">
-      <DependentUpon>Timeregistrereing.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Medarbejere\Medarbejder_timeoversigt.resx">
+      <DependentUpon>Medarbejder_timeoversigt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Medarbejere\Medarbejder.resx">
       <DependentUpon>Medarbejder.cs</DependentUpon>
@@ -148,8 +194,26 @@
     <EmbeddedResource Include="Forms\Medarbejere\Uddannelse.resx">
       <DependentUpon>Uddannelse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sager\Opret_sag.resx">
+      <DependentUpon>Opret_sag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sager\Rediger_sag.resx">
+      <DependentUpon>Rediger_sag.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Sager\Sag.resx">
       <DependentUpon>Sag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sager\Sag_oversigt.resx">
+      <DependentUpon>Sag_oversigt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sager\Tilfoj_time.resx">
+      <DependentUpon>Tilfoj_time.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sager\Valg_advokat.resx">
+      <DependentUpon>Valg_advokat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sager\Valg_kunde.resx">
+      <DependentUpon>Valg_kunde.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

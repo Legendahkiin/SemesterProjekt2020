@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Windows.Documents;
 using Semesterprojekt_2020.Forms.Kunder;
+using Semesterprojekt_2020.Forms.Medarbejere;
+using Semesterprojekt_2020.Forms.Sager;
 
 namespace Semesterprojekt_2020
 {
@@ -50,38 +53,6 @@ namespace Semesterprojekt_2020
             }
         }
 
-        // Giver ALT data fra en tabel (target)
-        // Hvis vi vil vise fx kunder, så er target = "kunde" -- hvis medarbejdere, så er target = "medarbejder"
-        public void ReadDatabase(string target)
-        {
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-
-                // selectCmd er den kommando, vi kører på SQL databasen -- 'target' er input parameter
-                string selectCmd = "SELECT * FROM " + target;
-
-                connection.Open();
-
-                // Vi laver en ny SqlCommand class med kommandoen og forbindelses-string
-                SqlCommand sql = new SqlCommand(selectCmd, connection);
-
-                // Vi åbner en dataReader for at læse output
-                SqlDataReader dataReader = sql.ExecuteReader();
-
-                // Vi har en output string (så vi faktisk kan bruge det til noget)
-                string output = "";
-
-                // Læser hver linje som resultat af ovenstående SQL kommando (SELECT * FROM target)
-                while (dataReader.Read())
-                {
-                    // en metode der udskriver hver linje i console -- ikke spørg mig hvorfor den skal castes til IDataRecord datatypen...
-                    ReadSingleRow((IDataRecord)dataReader);
-                }
-
-
-                connection.Close();
-            }
-        }
 
         // Denne metode returnerer antallet af columns i en tabel (f.eks. kunde)
         public static int GetColumnsInTable(string target, string connectionString)
@@ -209,6 +180,8 @@ namespace Semesterprojekt_2020
             }
         }
 
+        //Kunde CRUD 
+
         //Metode til at fylde en sagsoversigt for en kunde, med mulighed for at vælge mellem åbne og lukkede sager
 
         public object FyldKundeSagOversigt(int kundeNummer, string sagStatus)
@@ -266,7 +239,7 @@ namespace Semesterprojekt_2020
         }
 
         //Metode til at fylde Rediger kunde siden
-        public string FyldRedKunde(int KundeNummer, string kolonne)
+        public string FyldRedKunde(int kundeNummer, string kolonne)
         {
             string result = "";
             using (SqlConnection con = new SqlConnection(connectionString))
@@ -275,7 +248,7 @@ namespace Semesterprojekt_2020
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = "SELECT * FROM dbo.Kunde WHERE KundeID = " + KundeNummer.ToString();
+                    com.CommandText = "SELECT * FROM dbo.Kunde WHERE KundeID = " + kundeNummer.ToString();
                     SqlDataReader dr = com.ExecuteReader();
                     if (dr.HasRows)
                     {
@@ -300,14 +273,14 @@ namespace Semesterprojekt_2020
         }
 
         //Metode til at opdatere kunde
-        public void OpdaterKunde(int KundeNummer, string knavn, string kpostnr, string kbynavn, string kadr, string kemail, string ktlf)
+        public void OpdaterKunde(int kundeNummer, string knavn, string kpostnr, string kbynavn, string kadr, string kemail, string ktlf)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = "UPDATE dbo.Kunde SET Navn=@knavn, Postnr=@kpostnr, Bynavn=@kbynavn, Adresse=@kadr, Email=@kemail, Tlfnr=@ktlf WHERE KundeID = " + KundeNummer.ToString();
+                    com.CommandText = "UPDATE dbo.Kunde SET Navn=@knavn, Postnr=@kpostnr, Bynavn=@kbynavn, Adresse=@kadr, Email=@kemail, Tlfnr=@ktlf WHERE KundeID = " + kundeNummer.ToString();
                     con.Open();
                     com.Parameters.AddWithValue("@knavn", knavn);
                     com.Parameters.AddWithValue("@kpostnr", kpostnr);
@@ -318,7 +291,7 @@ namespace Semesterprojekt_2020
                     com.ExecuteNonQuery();
                     con.Close();
 
-                    MessageBox.Show("Kunde opdateret.");
+                    MessageBox.Show(knavn + "er blever redigeret.");
 
 
                 }
@@ -326,14 +299,14 @@ namespace Semesterprojekt_2020
         }
 
         //Slet kunde
-        public void SletKunde(int KundeNummer)
+        public void SletKunde(int kundeNummer)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = "DELETE from dbo.Kunde WHERE KundeID =" + KundeNummer.ToString();
+                    com.CommandText = "DELETE from dbo.Kunde WHERE KundeID =" + kundeNummer.ToString();
                     con.Open();
                     com.ExecuteNonQuery();
                     con.Close();
@@ -341,14 +314,453 @@ namespace Semesterprojekt_2020
             }
         }
 
-        private void ComboSagStatus()
+
+        //Kunde CRUD Slut
+
+        //Medarbejder CRUD
+
+
+        public void OpretMedarbejder(string mnavn, string madr, string mpostnr, string mbynavn, string memail, string mtlf, int stillingID)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 using (SqlCommand com = new SqlCommand())
                 {
-                }
+                    com.Connection = con;
+                    com.CommandText = "INSERT INTO dbo.Medarbejder(Navn,Adresse,Postnr,Bynavn,Email,Tlfnr, StillingID) VALUES(@mnavn, @madr, @mpostnr, @mbynavn, @memail, @mtlf, @mstillingID)";
+                    com.Parameters.AddWithValue("@mnavn", mnavn);
+                    com.Parameters.AddWithValue("@madr", madr);
+                    com.Parameters.AddWithValue("@mpostnr", mpostnr);
+                    com.Parameters.AddWithValue("@mbynavn", mbynavn);
+                    com.Parameters.AddWithValue("@memail", memail);
+                    com.Parameters.AddWithValue("@mtlf", mtlf);
+                    com.Parameters.AddWithValue("@mstillingID", stillingID);
 
+                    con.Open();
+                    int result = com.ExecuteNonQuery();
+
+                    if (result < 0)
+                    {
+                        MessageBox.Show("Database fejl ved oprettelse.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kunde oprettet");
+                    }
+                    con.Close();
+
+
+                }
+            }
+        }
+
+        public void TilfojUddannelse(string mnavn, string mtlf)
+        {
+            MessageBox.Show(FindMedID(mnavn, mtlf).ToString());
+            int medID = FindMedID(mnavn, mtlf);
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "INSERT INTO dbo.Uddannelser(UddID, UddNavn, MedID, Aktiv) SELECT UddID, UddNavn, " + medID + ", 0 FROM dbo.AlleUddannelser";
+                    com.Parameters.AddWithValue("@medID", medID);
+                    com.Parameters.AddWithValue("@aktiv", 1);
+
+                    con.Open();
+                    int result = com.ExecuteNonQuery();
+                    con.Close();
+
+
+                }
+            }
+        }
+
+        public int FindMedID(string mnavn, string mtlf)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT MedID FROM dbo.Medarbejder WHERE Navn = " + mnavn + " AND Tlfnr = " + mtlf;
+                    con.Open();
+                    using (SqlDataReader read = com.ExecuteReader())
+                    {
+                        while (read.Read())
+                        {
+                            return Convert.ToInt32(read["MedID"]);
+                        }
+                        return 0;
+                    }
+
+
+                }
+            }
+        }
+
+        public void OpdaterMedarbejder(int medarbejderNummer, string mnavn, string madr, string mpostnr, string mbynavn, string memail, string mtlf, int mstillingID)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "UPDATE dbo.Medarbejder SET Navn=@mnavn, Adresse=@madr, Postnr=@mpostnr, Bynavn=@mbynavn, Email=@memail, Tlfnr=@mtlf, StillingID=@mstillingID WHERE MedID = " + medarbejderNummer.ToString();
+                    con.Open();
+                    com.Parameters.AddWithValue("@mnavn", mnavn);
+                    com.Parameters.AddWithValue("@madr", madr);
+                    com.Parameters.AddWithValue("@mpostnr", mpostnr);
+                    com.Parameters.AddWithValue("@mbynavn", mbynavn);
+                    com.Parameters.AddWithValue("@memail", memail);
+                    com.Parameters.AddWithValue("@mtlf", mtlf);
+                    com.Parameters.AddWithValue("@mstillingID", mstillingID);
+                    com.ExecuteNonQuery();
+                    con.Close();
+
+                    MessageBox.Show(mnavn + " er blevet redigeret.");
+
+
+                }
+            }
+        }
+        //Slet kunde
+        public void SletMedarbejder(int medarbejderNummer)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "DELETE from dbo.Medarbejder WHERE MedID =" + medarbejderNummer.ToString();
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
+                }
+            }
+        }
+
+        public void FyldStillingComoBox(ComboBox comboboxNavn)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT StillingID, StillingNavn FROM dbo.Stilling";
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter dAdapter = new SqlDataAdapter();
+                    dAdapter.SelectCommand = com;
+                    con.Open();
+                    dAdapter.Fill(dt);
+                    con.Close();
+                    comboboxNavn.ValueMember = "StillingID";
+                    comboboxNavn.DisplayMember = "StillingNavn";
+                    comboboxNavn.DataSource = dt;
+                }
+            }
+        }
+
+        //Metode til at fylde Rediger medarbejder siden
+        public string FyldRedMedarbejder(int medarbejderNummer, string kolonne)
+        {
+            string result = "";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT m.*, s.StillingNavn FROM dbo.Medarbejder m JOIN dbo.Stilling s ON m.StillingID = s.StillingID WHERE MedID =" + medarbejderNummer.ToString();
+                    SqlDataReader dr = com.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            result += dr[kolonne].ToString();
+                            break;
+                        }
+                        con.Close();
+                        return result;
+                    }
+                    else
+                    {
+                        con.Close();
+                        result += "FEJL";
+                        return result;
+                    }
+
+
+                }
+            }
+        }
+
+        //Metode til at fylde Medarbejder_timeoversigt dataGridView
+        public object FyldMedTimeoversigt(int medarbejderNummer, string fraDato, string tilDato)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT s.SagNavn, t.YdeNavn, t.AntalTimer, t.AntalKM, t.Dato FROM dbo.Sag s JOIN dbo.TimeReg t ON s.MedID = t.MedID WHERE s.MedID = " + medarbejderNummer + " AND t.Dato BETWEEN " + fraDato + " AND " + tilDato;
+                    SqlDataAdapter sda = new SqlDataAdapter(com);
+
+                    DataTable dtRecord = new DataTable();
+                    sda.Fill(dtRecord);
+                    return dtRecord;
+                }
+            }
+        }
+        public void FyldUddCombobox(ComboBox comboboxNavn, int aktiv, int medarbejderNummer)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT a.UddID, a.UddNavn, t.Aktiv FROM dbo.AlleUddannelser a JOIN dbo.Uddannelser t ON a.UddID = t.UddID WHERE MedID = " + medarbejderNummer + " AND Aktiv = " + aktiv;
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter dAdapter = new SqlDataAdapter();
+                    dAdapter.SelectCommand = com;
+                    con.Open();
+                    dAdapter.Fill(dt);
+                    con.Close();
+                    comboboxNavn.ValueMember = "UddID";
+                    comboboxNavn.DisplayMember = "UddNavn";
+                    comboboxNavn.DataSource = dt;
+                }
+            }
+
+        }
+        public void FyldUddListbox(ListBox listboxNavn, int aktiv, int medarbejderNummer)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT a.UddID, a.UddNavn, t.Aktiv FROM dbo.AlleUddannelser a JOIN dbo.Uddannelser t ON a.UddID = t.UddID WHERE MedID = " + medarbejderNummer + " AND Aktiv = " + aktiv;
+                    DataTable dt = new DataTable();
+                    SqlDataAdapter dAdapter = new SqlDataAdapter();
+                    dAdapter.SelectCommand = com;
+                    con.Open();
+                    dAdapter.Fill(dt);
+                    con.Close();
+                    listboxNavn.ValueMember = "UddID";
+                    listboxNavn.DisplayMember = "UddNavn";
+                    listboxNavn.DataSource = dt;
+                }
+            }
+
+        }
+
+        public void GorInaktiv(int uddID, int medID, int aktiv)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "UPDATE dbo.Uddannelser SET Aktiv= " + aktiv + " WHERE UddID =" + uddID + " AND MedID = " + medID;
+                    con.Open();
+                    com.ExecuteNonQuery();
+                    con.Close();
+
+                }
+            }
+        }
+
+        //CRUD Medarbejdere slut
+
+        //CRUD Sager start
+
+        public void OpretSag(string ssagnavn, int skundeID, int smedID, string sstartdato, string sesttimer)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "INSERT INTO dbo.Sag(SagNavn,KundeID,MedID,StartDato,EstTimer) VALUES(@ssagnavn, @skundeID, @smedID, " + sstartdato + ", @sesttimer)";
+                    com.Parameters.AddWithValue("@ssagnavn", ssagnavn);
+                    com.Parameters.AddWithValue("@skundeID", skundeID);
+                    com.Parameters.AddWithValue("@smedID", smedID);
+                    com.Parameters.AddWithValue("@sesttimer", sesttimer);
+
+                    con.Open();
+                    int result = com.ExecuteNonQuery();
+
+                    if (result < 0)
+                    {
+                        MessageBox.Show("Database fejl ved oprettelse.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Sag oprettet");
+                    }
+                    con.Close();
+
+
+                }
+            }
+        }
+        public string FyldRedSag(int sagNummer, string kolonne)
+        {
+            string result = "";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = ("SELECT s.*, k.*, k.Navn AS KundeNavn, m.Navn AS MedarbejderNavn FROM dbo.Sag s " +
+                        "JOIN dbo.Kunde k ON s.KundeID = k.KundeID " +
+                        "JOIN dbo.Medarbejder m ON s.MedID = m.MedID " +
+                        "WHERE SagID = " + sagNummer.ToString());
+                    SqlDataReader dr = com.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            result += dr[kolonne].ToString();
+                            break;
+                        }
+                        con.Close();
+                        return result;
+                    }
+                    else
+                    {
+                        con.Close();
+                        result += "FEJL";
+                        return result;
+                    }
+
+
+                }
+            }
+        }
+
+        public object FyldValgKunde()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT KundeID, Navn FROM dbo.Kunde";
+                    SqlDataAdapter sda = new SqlDataAdapter(com);
+
+                    DataTable dtRecord = new DataTable();
+                    sda.Fill(dtRecord);
+                    return dtRecord;
+                }
+            }
+        }
+
+        public object FyldValgAdvokat()
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT MedID, Navn FROM dbo.Medarbejder";
+                    SqlDataAdapter sda = new SqlDataAdapter(com);
+
+                    DataTable dtRecord = new DataTable();
+                    sda.Fill(dtRecord);
+                    return dtRecord;
+                }
+            }
+        }
+        public string FyldSagOversigt(int sagNummer, string kolonne)
+        {
+            string result = "";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = ("SELECT s.*, k.*, k.Navn AS KundeNavn, m.MedID, m.Navn AS MedarbejderNavn FROM dbo.Sag s " +
+                        "JOIN dbo.Kunde k ON s.KundeID = k.KundeID " +
+                        "JOIN dbo.Medarbejder m ON s.MedID = m.MedID " +
+                        "WHERE SagID = " + sagNummer.ToString());
+                    SqlDataReader dr = com.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            result += dr[kolonne].ToString();
+                            break;
+                        }
+                        con.Close();
+                        return result;
+                    }
+                    else
+                    {
+                        con.Close();
+                        result += "FEJL";
+                        return result;
+                    }
+
+
+                }
+            }
+        }
+
+        public object FyldSagTimeOversigt(int sagNummer)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "SELECT m.Navn, t.YdeNavn, t.Dato, t.AntalTimer, t.AntalKM FROM dbo.TimeReg t JOIN dbo.Medarbejder m ON t.MedID = m.MedID WHERE SagID = " + sagNummer;
+                    SqlDataAdapter sda = new SqlDataAdapter(com);
+
+                    DataTable dtRecord = new DataTable();
+                    sda.Fill(dtRecord);
+                    return dtRecord;
+
+                }
+            }
+        }
+
+        public void OpretTimeReg(int medID, int sagNummer, int antalTimer, int antalKM, string ynavn, string regdato)
+        {
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = "INSERT INTO dbo.TimeReg(MedID, SagID, AntalTimer, AntalKM, YdeNavn, Dato) VALUES(@medID, @sagNummer, @antalTimer, @antalKM, @ynavn, " + regdato+ ")";
+                    com.Parameters.AddWithValue("@medID", medID);
+                    com.Parameters.AddWithValue("@sagNummer", sagNummer);
+                    com.Parameters.AddWithValue("@antalTimer", antalTimer);
+                    com.Parameters.AddWithValue("@antalKM", antalKM);
+                    com.Parameters.AddWithValue("@ynavn", ynavn);
+
+                    con.Open();
+                    int result = com.ExecuteNonQuery();
+
+                    if (result < 0)
+                    {
+                        MessageBox.Show("Database fejl ved oprettelse.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Timeregistrering oprettet");
+                    }
+                    con.Close();
+
+
+                }
             }
 
         }

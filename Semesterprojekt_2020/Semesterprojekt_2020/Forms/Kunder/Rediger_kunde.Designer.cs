@@ -348,7 +348,7 @@
             this.Controls.Add(this.red_kunde);
             this.Controls.Add(this.groupBox3);
             this.Name = "Rediger_kunde";
-            this.Text = "Rediger_kunde";
+            this.Text = "Rediger kunde";
             this.Load += new System.EventHandler(this.Rediger_kunde_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
