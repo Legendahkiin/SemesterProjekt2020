@@ -45,6 +45,7 @@ namespace Semesterprojekt_2020.Forms.Medarbejere
             if (dialogResult == DialogResult.Yes)
             {
                 handler.OpdaterMedarbejder(Medarbejdere.medarbejderNummer, red_med_navn.Text, red_med_adr.Text, red_med_postnr.Text, red_med_bynavn.Text, red_med_email.Text, red_med_tlf.Text, Convert.ToInt32(red_StillingComboBox.SelectedValue));
+                Close();
             }
         }
 

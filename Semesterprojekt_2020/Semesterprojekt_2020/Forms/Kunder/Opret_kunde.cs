@@ -13,7 +13,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
     public partial class Opret_kunde : Form
     {
 
-        string besked = "";
+        string fejl = "";
         public Opret_kunde()
         {
             InitializeComponent();
@@ -28,52 +28,58 @@ namespace Semesterprojekt_2020.Forms.Kunder
             }
             else
             {
-                besked += "Du skal indtaste et navn.\r\n";
+                fejl += "Du skal indtaste et navn.\r\n";
             }
             if (kunde_postnr_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste en postnummer.\r\n";
+                fejl += "Du skal indtaste en postnummer.\r\n";
             }
             if (kunde_bynavn_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste et bynavn.\r\n";
+                fejl += "Du skal indtaste et bynavn.\r\n";
             }
             if (kunde_adr_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste et adresse.\r\n";
+                fejl += "Du skal indtaste et adresse.\r\n";
             }
             if (kunde_email_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste en e-mail. \r\n";
+                fejl += "Du skal indtaste en e-mail. \r\n";
             }
             if (kunde_tlf_txt.Text != "")
             {
             }
             else
             {
-                besked += "Du skal indtaste et telefonnummer. \r\n";
+                fejl += "Du skal indtaste et telefonnummer. \r\n";
             }
 
-            if(besked == "")
+            if(fejl == "")
             {
-                SQLHandler handler = new SQLHandler();
-                handler.OpretKunde(kunde_navn_txt.Text, kunde_postnr_txt.Text, kunde_bynavn_txt.Text, kunde_adr_txt.Text, kunde_email_txt.Text, kunde_tlf_txt.Text);
+                //Viser en ja / nej boks inden medarbejder bliver oprettet
+                DialogResult dialogResult = MessageBox.Show("Er du sikker på at du vil oprette " + kunde_navn_txt.Text + "?", "Opret " + kunde_navn_txt.Text + "?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    SQLHandler handler = new SQLHandler();
+                    handler.OpretKunde(kunde_navn_txt.Text, kunde_postnr_txt.Text, kunde_bynavn_txt.Text, kunde_adr_txt.Text, kunde_email_txt.Text, kunde_tlf_txt.Text); 
+                }
+               
             }
             else
             {
-                MessageBox.Show(besked);
+                MessageBox.Show(fejl);
             }
         }
 

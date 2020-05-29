@@ -36,7 +36,7 @@ namespace Semesterprojekt_2020.Forms.Kunder
         private void sag_status_SelectedValueChanged(object sender, EventArgs e)
         {
 
-            if (sag_status.SelectedValue.ToString() == "1")
+            if (sag_status.SelectedValue.ToString() != "1")
             {
                 sagStatus = "IS NOT NULL";
             }

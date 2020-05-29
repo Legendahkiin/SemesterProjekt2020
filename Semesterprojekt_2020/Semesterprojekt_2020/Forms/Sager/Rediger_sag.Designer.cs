@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Annuller = new System.Windows.Forms.Button();
+            this.red_sag_annuller = new System.Windows.Forms.Button();
             this.red_sag = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -52,14 +52,15 @@
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Annuller
+            // red_sag_annuller
             // 
-            this.Annuller.Location = new System.Drawing.Point(416, 373);
-            this.Annuller.Name = "Annuller";
-            this.Annuller.Size = new System.Drawing.Size(100, 50);
-            this.Annuller.TabIndex = 41;
-            this.Annuller.Text = "Annuller";
-            this.Annuller.UseVisualStyleBackColor = true;
+            this.red_sag_annuller.Location = new System.Drawing.Point(416, 373);
+            this.red_sag_annuller.Name = "red_sag_annuller";
+            this.red_sag_annuller.Size = new System.Drawing.Size(100, 50);
+            this.red_sag_annuller.TabIndex = 41;
+            this.red_sag_annuller.Text = "Annuller";
+            this.red_sag_annuller.UseVisualStyleBackColor = true;
+            this.red_sag_annuller.Click += new System.EventHandler(this.red_sag_annuller_Click);
             // 
             // red_sag
             // 
@@ -237,11 +238,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Annuller);
+            this.Controls.Add(this.red_sag_annuller);
             this.Controls.Add(this.red_sag);
             this.Controls.Add(this.groupBox3);
             this.Name = "Rediger_sag";
             this.Text = "Rediger sag";
+            this.Load += new System.EventHandler(this.Rediger_sag_Load);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -254,7 +256,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Annuller;
+        private System.Windows.Forms.Button red_sag_annuller;
         private System.Windows.Forms.Button red_sag;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;

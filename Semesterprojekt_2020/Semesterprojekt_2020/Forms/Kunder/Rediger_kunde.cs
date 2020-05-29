@@ -31,7 +31,14 @@ namespace Semesterprojekt_2020.Forms.Kunder
         //Opdaterer data på kunde
         private void red_kunde_Click(object sender, EventArgs e)
         {
-            handler.OpdaterKunde(Kunde.kundeNummer, red_kunde_navn.Text, red_kunde_postnr.Text, red_kunde_bynavn.Text, red_kunde_adresse.Text, red_kunde_email.Text, red_kunde_tlfnr.Text);
+            //Viser en ja / nej boks inden medarbejder bliver oprettet
+            DialogResult dialogResult = MessageBox.Show("Er du sikker på at du vil redigere " + nu_kunde_navn.Text + "?", "Rediger " + nu_kunde_navn.Text + "?", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                handler.OpdaterKunde(Kunde.kundeNummer, red_kunde_navn.Text, red_kunde_postnr.Text, red_kunde_bynavn.Text, red_kunde_adresse.Text, red_kunde_email.Text, red_kunde_tlfnr.Text);
+                Close();
+            }
+            
             
         }
 

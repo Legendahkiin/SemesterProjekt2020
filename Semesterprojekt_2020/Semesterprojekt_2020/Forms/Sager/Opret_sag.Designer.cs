@@ -60,6 +60,7 @@
             this.Annuller.TabIndex = 38;
             this.Annuller.Text = "Annuller";
             this.Annuller.UseVisualStyleBackColor = true;
+            this.Annuller.Click += new System.EventHandler(this.Annuller_Click);
             // 
             // opr_sag
             // 

@@ -336,9 +336,12 @@
             // 
             // sag_timeoversigt
             // 
+            this.sag_timeoversigt.AllowUserToAddRows = false;
+            this.sag_timeoversigt.AllowUserToDeleteRows = false;
             this.sag_timeoversigt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sag_timeoversigt.Location = new System.Drawing.Point(6, 72);
             this.sag_timeoversigt.Name = "sag_timeoversigt";
+            this.sag_timeoversigt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sag_timeoversigt.Size = new System.Drawing.Size(751, 210);
             this.sag_timeoversigt.TabIndex = 0;
             // 

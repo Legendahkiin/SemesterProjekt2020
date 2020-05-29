@@ -55,9 +55,12 @@
             // 
             // valg_advokat_oversigt
             // 
+            this.valg_advokat_oversigt.AllowUserToAddRows = false;
+            this.valg_advokat_oversigt.AllowUserToDeleteRows = false;
             this.valg_advokat_oversigt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.valg_advokat_oversigt.Location = new System.Drawing.Point(12, 12);
             this.valg_advokat_oversigt.Name = "valg_advokat_oversigt";
+            this.valg_advokat_oversigt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.valg_advokat_oversigt.Size = new System.Drawing.Size(262, 335);
             this.valg_advokat_oversigt.TabIndex = 40;
             this.valg_advokat_oversigt.SelectionChanged += new System.EventHandler(this.valg_kunde_oversigt_SelectionChanged);

@@ -36,9 +36,12 @@
             // 
             // valg_kunde_oversigt
             // 
+            this.valg_kunde_oversigt.AllowUserToAddRows = false;
+            this.valg_kunde_oversigt.AllowUserToDeleteRows = false;
             this.valg_kunde_oversigt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.valg_kunde_oversigt.Location = new System.Drawing.Point(12, 12);
             this.valg_kunde_oversigt.Name = "valg_kunde_oversigt";
+            this.valg_kunde_oversigt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.valg_kunde_oversigt.Size = new System.Drawing.Size(262, 335);
             this.valg_kunde_oversigt.TabIndex = 0;
             this.valg_kunde_oversigt.SelectionChanged += new System.EventHandler(this.valg_kunde_oversigt_SelectionChanged);

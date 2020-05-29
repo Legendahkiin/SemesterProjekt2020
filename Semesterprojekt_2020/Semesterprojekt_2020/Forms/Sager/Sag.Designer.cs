@@ -70,6 +70,7 @@
             this.slet_sag.TabIndex = 7;
             this.slet_sag.Text = "Slet";
             this.slet_sag.UseVisualStyleBackColor = true;
+            this.slet_sag.Click += new System.EventHandler(this.slet_sag_Click);
             // 
             // vis_sag
             // 
@@ -85,9 +86,12 @@
             // 
             // sag_oversigt
             // 
+            this.sag_oversigt.AllowUserToAddRows = false;
+            this.sag_oversigt.AllowUserToDeleteRows = false;
             this.sag_oversigt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.sag_oversigt.Location = new System.Drawing.Point(12, 26);
             this.sag_oversigt.Name = "sag_oversigt";
+            this.sag_oversigt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.sag_oversigt.Size = new System.Drawing.Size(776, 322);
             this.sag_oversigt.TabIndex = 9;
             this.sag_oversigt.SelectionChanged += new System.EventHandler(this.sag_oversigt_SelectionChanged);

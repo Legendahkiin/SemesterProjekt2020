@@ -102,7 +102,7 @@
             this.combobox_fjern_udd.Name = "combobox_fjern_udd";
             this.combobox_fjern_udd.Size = new System.Drawing.Size(212, 21);
             this.combobox_fjern_udd.TabIndex = 1;
-            this.combobox_fjern_udd.SelectedIndexChanged += new System.EventHandler(this.combobox_fjern_udd_SelectedIndexChanged);
+            this.combobox_fjern_udd.SelectionChangeCommitted += new System.EventHandler(this.combobox_fjern_udd_SelectionChangeCommitted);
             // 
             // nu_udd
             // 
@@ -141,16 +141,11 @@
             this.combobox_tilfoj_udd.Name = "combobox_tilfoj_udd";
             this.combobox_tilfoj_udd.Size = new System.Drawing.Size(212, 21);
             this.combobox_tilfoj_udd.TabIndex = 2;
-            this.combobox_tilfoj_udd.SelectedIndexChanged += new System.EventHandler(this.combobox_tilfoj_udd_SelectedIndexChanged);
+            this.combobox_tilfoj_udd.SelectionChangeCommitted += new System.EventHandler(this.combobox_tilfoj_udd_SelectionChangeCommitted);
             // 
             // tilg_udd
             // 
             this.tilg_udd.FormattingEnabled = true;
-            this.tilg_udd.Items.AddRange(new object[] {
-            "Bolighandel",
-            "Skilsmisse",
-            "Bla ",
-            "Bla"});
             this.tilg_udd.Location = new System.Drawing.Point(6, 76);
             this.tilg_udd.Name = "tilg_udd";
             this.tilg_udd.Size = new System.Drawing.Size(212, 264);

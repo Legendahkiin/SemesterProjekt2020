@@ -504,7 +504,7 @@ namespace Semesterprojekt_2020
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = "SELECT s.SagNavn, t.AntalTimer, t.AntalKM, t.Dato FROM dbo.Sag s JOIN dbo.TimeReg t ON s.MedID = t.MedID WHERE s.MedID = " + medarbejderNummer + " AND t.Dato BETWEEN " + fraDato + " AND " + tilDato;
+                    com.CommandText = "SELECT s.SagNavn, t.YdeNavn, t.AntalTimer, t.AntalKM, t.Dato FROM dbo.Sag s JOIN dbo.TimeReg t ON s.MedID = t.MedID WHERE s.MedID = " + medarbejderNummer + " AND t.Dato BETWEEN " + fraDato + " AND " + tilDato;
                     SqlDataAdapter sda = new SqlDataAdapter(com);
 
                     DataTable dtRecord = new DataTable();
@@ -520,7 +520,7 @@ namespace Semesterprojekt_2020
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = "SELECT a.UddID, a.UddNavn, t.MedID, t.Aktiv FROM dbo.AlleUddannelser a JOIN dbo.Uddannelser t ON a.UddID = t.UddID WHERE MedID = " + medarbejderNummer + " AND Aktiv = " + aktiv;
+                    com.CommandText = "SELECT a.UddID, a.UddNavn, t.Aktiv FROM dbo.AlleUddannelser a JOIN dbo.Uddannelser t ON a.UddID = t.UddID WHERE MedID = " + medarbejderNummer + " AND Aktiv = " + aktiv;
                     DataTable dt = new DataTable();
                     SqlDataAdapter dAdapter = new SqlDataAdapter();
                     dAdapter.SelectCommand = com;
@@ -541,7 +541,7 @@ namespace Semesterprojekt_2020
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = "SELECT a.UddID, a.UddNavn, t.MedID, t.Aktiv FROM dbo.AlleUddannelser a JOIN dbo.Uddannelser t ON a.UddID = t.UddID WHERE MedID = " + medarbejderNummer + " AND Aktiv = " + aktiv;
+                    com.CommandText = "SELECT a.UddID, a.UddNavn, t.Aktiv FROM dbo.AlleUddannelser a JOIN dbo.Uddannelser t ON a.UddID = t.UddID WHERE MedID = " + medarbejderNummer + " AND Aktiv = " + aktiv;
                     DataTable dt = new DataTable();
                     SqlDataAdapter dAdapter = new SqlDataAdapter();
                     dAdapter.SelectCommand = com;
@@ -563,13 +563,10 @@ namespace Semesterprojekt_2020
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = "UPDATE dbo.Uddannelser SET Aktiv=@aktiv WHERE UddID =" + uddID + " AND MedID = " + medID;
+                    com.CommandText = "UPDATE dbo.Uddannelser SET Aktiv= " + aktiv + " WHERE UddID =" + uddID + " AND MedID = " + medID;
                     con.Open();
-                    com.Parameters.AddWithValue("@aktiv", aktiv);
                     com.ExecuteNonQuery();
                     con.Close();
-
-                    //"UPDATE dbo.Medarbejder SET StillingID=@mstillingID WHERE MedID = " + medarbejderNummer.ToString();
 
                 }
             }
@@ -604,6 +601,41 @@ namespace Semesterprojekt_2020
                         MessageBox.Show("Sag oprettet");
                     }
                     con.Close();
+
+
+                }
+            }
+        }
+        public string FyldRedSag(int sagNummer, string kolonne)
+        {
+            string result = "";
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                con.Open();
+                using (SqlCommand com = new SqlCommand())
+                {
+                    com.Connection = con;
+                    com.CommandText = ("SELECT s.*, k.*, k.Navn AS KundeNavn, m.Navn AS MedarbejderNavn FROM dbo.Sag s " +
+                        "JOIN dbo.Kunde k ON s.KundeID = k.KundeID " +
+                        "JOIN dbo.Medarbejder m ON s.MedID = m.MedID " +
+                        "WHERE SagID = " + sagNummer.ToString());
+                    SqlDataReader dr = com.ExecuteReader();
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            result += dr[kolonne].ToString();
+                            break;
+                        }
+                        con.Close();
+                        return result;
+                    }
+                    else
+                    {
+                        con.Close();
+                        result += "FEJL";
+                        return result;
+                    }
 
 
                 }
@@ -654,7 +686,7 @@ namespace Semesterprojekt_2020
                 using (SqlCommand com = new SqlCommand())
                 {
                     com.Connection = con;
-                    com.CommandText = ("SELECT s.*, k.*, k.navn AS KundeNavn, m.MedID, m.Navn AS MedarbejderNavn FROM dbo.Sag s " +
+                    com.CommandText = ("SELECT s.*, k.*, k.Navn AS KundeNavn, m.MedID, m.Navn AS MedarbejderNavn FROM dbo.Sag s " +
                         "JOIN dbo.Kunde k ON s.KundeID = k.KundeID " +
                         "JOIN dbo.Medarbejder m ON s.MedID = m.MedID " +
                         "WHERE SagID = " + sagNummer.ToString());
